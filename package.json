@@ -21,6 +21,8 @@
     ]
   },
   "dependencies": {
+    "@styled-icons/bootstrap": "^10.29.0",
+    "@testing-library/user-event": "^13.0.7",
     "next": "10.0.9",
     "next-pwa": "^5.0.6",
     "react": "17.0.1",
