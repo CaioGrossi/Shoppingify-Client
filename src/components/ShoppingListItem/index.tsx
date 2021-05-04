@@ -4,24 +4,16 @@ import { TrashFill } from '@styled-icons/bootstrap/TrashFill';
 
 import * as S from './styles';
 import { useState } from 'react';
+import { useShoppingList } from 'hooks/use-shoppinglist';
 
 export type ShoppingListItemProps = {
-  id: number;
+  id: string;
   name: string;
   amount: number;
-  onIncrease: (id: number) => void;
-  onDecrease: (id: number) => void;
-  onDelete: (id: number) => void;
 };
 
-const ShoppingListItem = ({
-  id,
-  name,
-  amount,
-  onIncrease,
-  onDecrease,
-  onDelete
-}: ShoppingListItemProps) => {
+const ShoppingListItem = ({ id, name, amount }: ShoppingListItemProps) => {
+  const { onDecrease, onIncrease, onRemove } = useShoppingList();
   const [isControlOpen, setIsControlOpen] = useState(false);
 
   return (
@@ -33,12 +25,13 @@ const ShoppingListItem = ({
             <TrashFill
               size={15}
               data-testid="trash-icon"
-              onClick={() => onDelete(id)}
+              onClick={() => onRemove(id)}
             />
           </S.TrashIconWrapper>
 
           <S.ButtonsWrapper>
             <Dash
+              role="button"
               size={25}
               data-testid="minus-icon"
               onClick={() => onDecrease(id)}
@@ -47,6 +40,7 @@ const ShoppingListItem = ({
               {amount} pcs
             </S.Amount>
             <Plus
+              role="button"
               size={25}
               data-testid="plus-icon"
               onClick={() => onIncrease(id)}
@@ -55,7 +49,7 @@ const ShoppingListItem = ({
         </S.ControlsWrapper>
       ) : (
         <S.Amount onClick={() => setIsControlOpen(!isControlOpen)}>
-          {amount} pcs
+          {`${amount} pcs`}
         </S.Amount>
       )}
     </S.Wrapper>

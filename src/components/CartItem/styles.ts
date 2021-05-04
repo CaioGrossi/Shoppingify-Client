@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   background-color: #ffffff;
   padding: 1.5rem 1.6rem;
   justify-content: space-between;
+  min-width: 17rem;
   max-width: 18.2rem;
   font-size: 1.6rem;
   align-items: center;
@@ -13,4 +14,14 @@ export const Wrapper = styled.div`
   > svg {
     cursor: pointer;
   }
+
+  > p {
+    word-break: break-all;
+  }
+`;
+
+export const Button = styled.button`
+  border: none;
+  cursor: pointer;
+  background-color: white;
 `;

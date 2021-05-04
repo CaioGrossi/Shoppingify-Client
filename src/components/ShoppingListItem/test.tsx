@@ -3,6 +3,8 @@ import mock from './mock';
 
 import ShoppingListItem from '.';
 import userEvent from '@testing-library/user-event';
+import { customRender } from 'utils/test/test-utils';
+import { ShoppingListContextDefaultValues } from 'hooks/use-shoppinglist';
 
 describe('<ShoppingListItem />', () => {
   it('should render correctly', () => {
@@ -24,35 +26,47 @@ describe('<ShoppingListItem />', () => {
   });
 
   it('should call onDelete function when trash icon is clicked', () => {
-    const onDeleteMock = jest.fn();
-    render(<ShoppingListItem {...mock} onDelete={onDeleteMock} />);
+    const shoppinglistProviderProps = {
+      ...ShoppingListContextDefaultValues,
+      onRemove: jest.fn()
+    };
+
+    customRender(<ShoppingListItem {...mock} />, { shoppinglistProviderProps });
 
     userEvent.click(screen.getByText(/3 pcs/i));
     userEvent.click(screen.getByTestId(/trash-icon/i));
 
     // 1 = id do Mock
-    expect(onDeleteMock).toHaveBeenCalledWith(1);
+    expect(shoppinglistProviderProps.onRemove).toHaveBeenCalledWith('1');
   });
 
   it('should call onIncrease function when plus icons is clicked', () => {
-    const onIncreaseMock = jest.fn();
-    render(<ShoppingListItem {...mock} onIncrease={onIncreaseMock} />);
+    const shoppinglistProviderProps = {
+      ...ShoppingListContextDefaultValues,
+      isInList: () => false,
+      onIncrease: jest.fn()
+    };
+    customRender(<ShoppingListItem {...mock} />, { shoppinglistProviderProps });
 
     userEvent.click(screen.getByText(/3 pcs/i));
     userEvent.click(screen.getByTestId(/plus-icon/i));
 
     // 1 = id do Mock
-    expect(onIncreaseMock).toHaveBeenCalledWith(1);
+    expect(shoppinglistProviderProps.onIncrease).toHaveBeenCalledWith('1');
   });
 
   it('should call onDecrease function when minus icon is clicked', () => {
-    const onDecreaseMock = jest.fn();
-    render(<ShoppingListItem {...mock} onDecrease={onDecreaseMock} />);
+    const shoppinglistProviderProps = {
+      ...ShoppingListContextDefaultValues,
+      isInList: () => false,
+      onDecrease: jest.fn()
+    };
+    customRender(<ShoppingListItem {...mock} />, { shoppinglistProviderProps });
 
     userEvent.click(screen.getByText(/3 pcs/i));
     userEvent.click(screen.getByTestId(/minus-icon/i));
 
     // 1 = id do Mock
-    expect(onDecreaseMock).toHaveBeenCalledWith(1);
+    expect(shoppinglistProviderProps.onDecrease).toHaveBeenCalledWith('1');
   });
 });

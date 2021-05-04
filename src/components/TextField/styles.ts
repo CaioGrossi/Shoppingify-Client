@@ -1,11 +1,27 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 31rem;
-  height: 9rem;
-  justify-content: space-around;
+import { TextFieldProps } from '.';
+
+type WrapperProps = Pick<TextFieldProps, 'inputSize'>;
+
+const wrapperModifiers = {
+  small: () => css`
+    width: 20rem;
+  `,
+  large: () => css`
+    width: 31rem;
+  `
+};
+
+export const Wrapper = styled.div<WrapperProps>`
+  ${({ inputSize }) => css`
+    display: flex;
+    flex-direction: column;
+    height: 9rem;
+    justify-content: space-around;
+
+    ${!!inputSize && wrapperModifiers[inputSize]()}
+  `}
 `;
 
 export const Label = styled.label`

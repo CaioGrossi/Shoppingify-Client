@@ -10,15 +10,31 @@ const props = {
 };
 
 describe('<TextField />', () => {
-  it('should correctly', () => {
-    const inputChangeMock = jest.fn();
-    render(<TextField {...props} onInputChange={inputChangeMock} />);
+  it('should render correctly and large size by defautl', () => {
+    const { container } = render(<TextField {...props} />);
 
     expect(screen.getByLabelText(/food/i)).toBeInTheDocument();
     expect(screen.getByRole('textbox', { name: /food/i })).toBeInTheDocument();
     expect(
       screen.getByPlaceholderText(/enter a name of a food/i)
     ).toBeInTheDocument();
+
+    expect(container.firstChild).toHaveStyle({
+      width: '31rem'
+    });
+  });
+
+  it('should render with small size', () => {
+    const { container } = render(<TextField {...props} inputSize="small" />);
+    expect(container.firstChild).toHaveStyle({
+      width: '20rem'
+    });
+  });
+
+  it('should render with no label', () => {
+    render(<TextField name="Save" placeholder="Save" />);
+
+    expect(screen.queryByLabelText('save label')).not.toBeInTheDocument();
   });
 
   it('should change the input value and call onInputChange function', async () => {

@@ -1,7 +1,6 @@
 const mockCartItem = {
-  id: 1,
-  name: 'Cheese',
-  onAdd: () => console.log('adicionado')
+  id: '1',
+  name: 'Cheese'
 };
 
 export default mockCartItem;

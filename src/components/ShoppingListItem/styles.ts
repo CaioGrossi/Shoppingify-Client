@@ -6,12 +6,15 @@ export const Wrapper = styled.div`
   align-items: center;
   padding: 0.5rem;
   width: 30rem;
-  height: 50rem;
+  height: 5.5rem;
   font-size: 1.8rem;
   color: black;
 `;
 
 export const Amount = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.2rem;
   border-radius: 2.4rem;
   border: 1px solid #f9a109;
@@ -19,7 +22,6 @@ export const Amount = styled.div`
   height: 3.2rem;
   cursor: pointer;
   color: #f9a109;
-  padding: 0.8rem 1.8rem 0.6rem;
 
   &:hover {
     background-color: #f9a109;

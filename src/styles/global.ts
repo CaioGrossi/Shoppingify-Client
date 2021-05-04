@@ -18,6 +18,23 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   }
+
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  
+
+  ::-webkit-scrollbar-thumb {
+    background:  #f9a109; 
+    border-radius: 10px;
+  }
+
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d68e11
+  }
 `;
 
 export default GlobalStyles;

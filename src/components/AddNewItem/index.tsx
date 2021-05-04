@@ -9,7 +9,9 @@ const AddNewItem = ({ onAdd }: AddNewItemProps) => (
     <S.ImageWrapper alt="Wine" src="/img/wine.svg" />
     <S.Content>
       <p>Didn`t find what you need?</p>
-      <S.AddItemButton onClick={() => onAdd()}>Add item</S.AddItemButton>
+      <S.AddItemButton role="button" onClick={() => onAdd()}>
+        Add item
+      </S.AddItemButton>
     </S.Content>
   </S.Wrapper>
 );

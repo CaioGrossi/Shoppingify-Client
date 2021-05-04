@@ -1,5 +1,5 @@
 const ShoppingListItemMock = {
-  id: 1,
+  id: '1',
   name: 'Banana',
   amount: 3,
   onDelete: () => {

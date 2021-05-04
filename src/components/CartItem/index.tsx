@@ -1,23 +1,41 @@
 import { Plus } from '@styled-icons/bootstrap/Plus';
+import { Dash } from '@styled-icons/bootstrap/Dash';
+import { useShoppingList } from 'hooks/use-shoppinglist';
 import * as S from './styles';
 
 export type CartItemProps = {
-  id: number;
+  id: string;
   name: string;
-  onAdd: (id: number) => void;
 };
 
-const CartItem = ({ id, name, onAdd }: CartItemProps) => (
-  <S.Wrapper>
-    <p>{name}</p>
-    <Plus
-      role="button"
-      aria-label="Adicionar item"
-      size={25}
-      color="#C1C1C4"
-      onClick={() => onAdd(id)}
-    />
-  </S.Wrapper>
-);
+const CartItem = ({ id, name }: CartItemProps) => {
+  const { isInList, onAdd, onRemove } = useShoppingList();
+
+  return (
+    <S.Wrapper>
+      <p>{name}</p>
+
+      {isInList(id) ? (
+        <S.Button>
+          <Dash
+            aria-label="Remover item"
+            size={25}
+            color="#C1C1C4"
+            onClick={() => onRemove(id)}
+          />
+        </S.Button>
+      ) : (
+        <S.Button>
+          <Plus
+            aria-label="Adicionar item"
+            size={25}
+            color="#C1C1C4"
+            onClick={() => onAdd(id, name, 1)}
+          />
+        </S.Button>
+      )}
+    </S.Wrapper>
+  );
+};
 
 export default CartItem;

@@ -23,6 +23,7 @@
   "dependencies": {
     "@styled-icons/bootstrap": "^10.29.0",
     "@testing-library/user-event": "^13.0.7",
+    "axios": "^0.21.1",
     "next": "10.0.9",
     "next-pwa": "^5.0.6",
     "react": "17.0.1",
@@ -36,6 +37,7 @@
     "@storybook/react": "6.1.21",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
+    "@testing-library/react-hooks": "^5.1.2",
     "@types/jest": "^26.0.21",
     "@types/node": "^14.14.35",
     "@types/react": "^17.0.3",

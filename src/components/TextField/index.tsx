@@ -2,17 +2,20 @@ import { InputHTMLAttributes, useState } from 'react';
 import * as S from './styles';
 
 export type TextFieldProps = {
-  name: string;
-  label: string;
-  placeholder: string;
   onInputChange?: (value: string) => void;
+  name: string;
+  label?: string;
+  placeholder: string;
+  inputSize?: 'small' | 'large';
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const TextField = ({
+  onInputChange,
   label,
+  inputSize = 'large',
   placeholder,
   name,
-  onInputChange
+  ...props
 }: TextFieldProps) => {
   const [inputValue, setInputValue] = useState('');
 
@@ -24,8 +27,9 @@ const TextField = ({
   };
 
   return (
-    <S.Wrapper>
-      <S.Label htmlFor={name}>{label}</S.Label>
+    <S.Wrapper inputSize={inputSize}>
+      {!!label && <S.Label htmlFor={name}>{label}</S.Label>}
+
       <S.InputWrapper>
         <S.Input
           type="text"
@@ -34,6 +38,7 @@ const TextField = ({
           placeholder={placeholder}
           name={name}
           id={name}
+          {...props}
         />
       </S.InputWrapper>
     </S.Wrapper>
