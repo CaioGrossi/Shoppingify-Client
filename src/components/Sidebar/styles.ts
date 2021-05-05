@@ -18,6 +18,8 @@ export const IconsWrapper = styled.div`
   a {
     text-decoration: none;
     color: black;
+    width: fit-content;
+    height: fit-content;
   }
 
   a :not(:last-child) {

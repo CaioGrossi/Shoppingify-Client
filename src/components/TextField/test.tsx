@@ -20,7 +20,7 @@ describe('<TextField />', () => {
     ).toBeInTheDocument();
 
     expect(container.firstChild).toHaveStyle({
-      width: '31rem'
+      width: '28rem'
     });
   });
 

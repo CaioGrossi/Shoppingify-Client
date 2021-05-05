@@ -21,5 +21,5 @@ export const Small: Story<TextFieldProps> = (args) => <TextField {...args} />;
 Small.args = {
   label: 'Name',
   placeholder: 'Enter a name',
-  size: 'small'
+  inputSize: 'small'
 };

@@ -9,7 +9,7 @@ const wrapperModifiers = {
     width: 20rem;
   `,
   large: () => css`
-    width: 31rem;
+    width: 28rem;
   `
 };
 
@@ -17,7 +17,7 @@ export const Wrapper = styled.div<WrapperProps>`
   ${({ inputSize }) => css`
     display: flex;
     flex-direction: column;
-    height: 9rem;
+    height: 8rem;
     justify-content: space-around;
 
     ${!!inputSize && wrapperModifiers[inputSize]()}
@@ -25,13 +25,13 @@ export const Wrapper = styled.div<WrapperProps>`
 `;
 
 export const Label = styled.label`
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 `;
 
 export const InputWrapper = styled.div`
   width: 100%;
-  height: 6.1rem;
-  padding: 1.5rem;
+  height: 4.5rem;
+  padding: 1rem;
   border: 2px solid #bdbdbd;
   border-radius: 1.2rem;
 
@@ -48,6 +48,8 @@ export const Input = styled.input`
   border: none;
   width: 100%;
   height: 100%;
+  background-color: inherit;
+  font-size: 1.8rem;
 
   &:focus {
     outline: none;
