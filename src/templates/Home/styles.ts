@@ -13,4 +13,8 @@ export const Header = styled.div`
   strong {
     color: #f9a109;
   }
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;

@@ -27,8 +27,6 @@ export default NextAuth({
           password: credentials.password
         });
 
-        console.log(response);
-
         const data = response.data;
 
         if (data.user) {
@@ -58,5 +56,8 @@ export default NextAuth({
 
       return Promise.resolve(token);
     }
+  },
+  session: {
+    maxAge: 1200
   }
 });

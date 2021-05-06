@@ -1,18 +1,43 @@
 import * as ShoppingListItemStyles from 'components/ShoppingListItem/styles';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Wrapper = styled.div`
-  height: 100vh;
-  width: 38.9rem;
-  display: flex;
-  flex-direction: column;
-  background-color: #fff0de;
-  justify-content: space-between;
+type WrapperProps = {
+  isOpen: boolean;
+};
 
-  h1 {
-    margin: 4rem 0;
-  }
+const wrapperModifiers = {
+  open: () => css`
+    @media (max-width: 900px) {
+      right: -2.2rem;
+    }
+  `,
+
+  close: () => css`
+    @media (max-width: 900px) {
+      right: -34rem;
+    }
+  `
+};
+
+export const Wrapper = styled.div<WrapperProps>`
+  ${({ isOpen }) => css`
+    height: 100vh;
+    width: 38.9rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff0de;
+    justify-content: space-between;
+    transition: 0.8s;
+    position: absolute;
+    z-index: 80;
+
+    h1 {
+      margin: 4rem 0;
+    }
+
+    ${isOpen ? wrapperModifiers.open() : wrapperModifiers.close()}
+  `}
 `;
 
 export const Content = styled.div`
@@ -22,7 +47,7 @@ export const Content = styled.div`
 export const ItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 50rem;
+  height: calc(100vh - 440px);
   overflow-y: scroll;
   min-width: 5.5rem;
   justify-content: flex-start;
@@ -45,9 +70,25 @@ export const Footer = styled.footer`
 export const SaveButton = styled.button`
   background-color: #f9a109;
   border-radius: 12px;
+  cursor: pointer;
   color: white;
   border: none;
   width: 8.7rem;
   height: 6.1rem;
   font-size: 1.6rem;
+`;
+
+export const ToggleListButton = styled.button`
+  border: 0;
+  position: absolute;
+  margin-left: -4rem;
+  display: none;
+
+  > svg {
+    background: #fff0de;
+  }
+
+  @media (max-width: 900px) {
+    display: block;
+  }
 `;

@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   background-color: white;
+  flex-shrink: 0;
 `;
 
 export const IconsWrapper = styled.div`
