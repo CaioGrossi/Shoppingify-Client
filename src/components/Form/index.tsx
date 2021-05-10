@@ -19,19 +19,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const SubmitButton = styled.button`
-  background-color: #f9a109;
-  border-radius: 9px;
-  color: white;
-  padding: 1rem 2rem;
-  font-size: 2rem;
-  border: none;
-  font-weight: bold;
-  width: 100%;
-  cursor: pointer;
-  margin-top: 1rem;
-`;
-
 export const FormLoading = styled.img.attrs(() => ({
   src: '/img/dots.svg',
   alt: 'Waiting...'

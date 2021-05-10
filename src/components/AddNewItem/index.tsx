@@ -1,7 +1,7 @@
 import * as S from './styles';
 
 export type AddNewItemProps = {
-  onAdd: () => void;
+  onAdd: (state: boolean) => void;
 };
 
 const AddNewItem = ({ onAdd }: AddNewItemProps) => (
@@ -9,7 +9,7 @@ const AddNewItem = ({ onAdd }: AddNewItemProps) => (
     <S.ImageWrapper alt="Wine" src="/img/wine.svg" />
     <S.Content>
       <p>Didn`t find what you need?</p>
-      <S.AddItemButton role="button" onClick={() => onAdd()}>
+      <S.AddItemButton role="button" onClick={() => onAdd(false)}>
         Add item
       </S.AddItemButton>
     </S.Content>

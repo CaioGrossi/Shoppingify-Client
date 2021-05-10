@@ -14,7 +14,7 @@ describe('<ShoppingListItem />', () => {
     expect(screen.getByText(/3 pcs/i)).toBeInTheDocument();
   });
 
-  it('should open controls when the amount is clicked', () => {
+  it('should open and close controls when the amount is clicked', () => {
     render(<ShoppingListItem {...mock} />);
 
     userEvent.click(screen.getByText(/3 pcs/i));
@@ -23,6 +23,12 @@ describe('<ShoppingListItem />', () => {
     expect(screen.getByTestId(/trash-icon/i)).toBeInTheDocument();
     expect(screen.getByTestId(/minus-icon/i)).toBeInTheDocument();
     expect(screen.getByTestId(/plus-icon/i)).toBeInTheDocument();
+
+    userEvent.click(screen.getByText(/3 pcs/i));
+    expect(screen.getByText(/3 pcs/i)).toBeInTheDocument();
+    expect(screen.queryByTestId(/trash-icon/i)).not.toBeInTheDocument();
+    expect(screen.queryByTestId(/minus-icon/i)).not.toBeInTheDocument();
+    expect(screen.queryByTestId(/plus-icon/i)).not.toBeInTheDocument();
   });
 
   it('should call onDelete function when trash icon is clicked', () => {

@@ -1,5 +1,5 @@
 import Sidebar from 'components/Sidebar';
-import ShoppingList from 'components/ShoppingList';
+import AsideFormList from 'components/AsideListForm';
 
 import * as S from './styles';
 
@@ -12,7 +12,7 @@ const Base = ({ children }: BaseTemplateProps) => {
     <S.Wrapper>
       <Sidebar />
       <S.Content>{children}</S.Content>
-      <ShoppingList />
+      <AsideFormList />
     </S.Wrapper>
   );
 };

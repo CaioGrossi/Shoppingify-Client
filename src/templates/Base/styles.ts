@@ -19,3 +19,18 @@ export const Content = styled.main`
     padding-right: 0;
   }
 `;
+
+export const ListOrFormWrapper = styled.div`
+  height: 100vh;
+  width: 38.9rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff0de;
+  justify-content: space-between;
+  transition: 0.8s;
+  z-index: 80;
+
+  h1 {
+    margin: 4rem 0;
+  }
+`;

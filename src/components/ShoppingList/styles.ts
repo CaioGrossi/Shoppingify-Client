@@ -9,12 +9,14 @@ type WrapperProps = {
 const wrapperModifiers = {
   open: () => css`
     @media (max-width: 900px) {
+      position: absolute;
       right: -2.2rem;
     }
   `,
 
   close: () => css`
     @media (max-width: 900px) {
+      position: absolute;
       right: -34rem;
     }
   `
@@ -29,7 +31,6 @@ export const Wrapper = styled.div<WrapperProps>`
     background-color: #fff0de;
     justify-content: space-between;
     transition: 0.8s;
-    position: absolute;
     z-index: 80;
 
     h1 {

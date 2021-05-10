@@ -1,7 +1,9 @@
 import AddNewItem from 'components/AddNewItem';
+import Button from 'components/Button';
 import ShoppingListItem from 'components/ShoppingListItem';
 import TextField from 'components/TextField';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 import { ArrowLeft } from '@styled-icons/bootstrap/ArrowLeft';
 import { ArrowRight } from '@styled-icons/bootstrap/ArrowRight';
@@ -12,43 +14,33 @@ import { useState } from 'react';
 import { useSession } from 'next-auth/client';
 
 import * as S from './styles';
+import { useRouter } from 'next/dist/client/router';
 
-const ShoppingList = () => {
+type ShoppingListProps = {
+  onCreateItem: (state: boolean) => void;
+};
+
+const ShoppingList = ({ onCreateItem }: ShoppingListProps) => {
   const { items } = useShoppingList();
   const [listName, setListName] = useState('');
   const [session] = useSession();
   const [isOpen, setIsOpen] = useState(false);
 
-  const notifyError = (message: string) =>
-    toast.error(message, {
-      position: 'top-right',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined
-    });
+  const router = useRouter();
 
-  const notifySuccess = (message: string) =>
-    toast.success(message, {
-      position: 'top-right',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined
-    });
+  const notifyError = (message: string) => toast.error(message);
+
+  const notifySuccess = (message: string) => toast.success(message);
 
   const handleListSubmit = async () => {
     if (items.length <= 0) {
-      notifyError('Put some items in your list !');
+      notifyError('Put some items in your list!');
       return;
     }
 
     if (listName == '') {
       notifyError('Give a name to your list!');
+      return;
     }
 
     try {
@@ -67,8 +59,7 @@ const ShoppingList = () => {
 
       notifySuccess('List saved!');
     } catch (error) {
-      // MANDAR PARA TELA DE LOGIN PQ TOKEN VENCEU
-      console.log('erro');
+      router.push('/sign-in');
     }
   };
 
@@ -96,7 +87,7 @@ const ShoppingList = () => {
           {isOpen ? <ArrowRight size={28} /> : <ArrowLeft size={28} />}
         </S.ToggleListButton>
 
-        <AddNewItem onAdd={() => console.log('oi')} />
+        <AddNewItem onAdd={onCreateItem} />
 
         <h1>Shopping list</h1>
         <S.ItemsWrapper>
@@ -115,10 +106,11 @@ const ShoppingList = () => {
         <TextField
           placeholder="Enter a name"
           inputSize="small"
-          name="name"
+          name="list name"
           onInputChange={(value) => setListName(value)}
         />
-        <S.SaveButton onClick={() => handleListSubmit()}>Save</S.SaveButton>
+
+        <Button onClick={handleListSubmit}>Save</Button>
       </S.Footer>
     </S.Wrapper>
   );

@@ -82,6 +82,11 @@ const ShoppingListProvider = ({ children }: ShoppingListProviderProps) => {
       const item = itemsArray[i];
 
       if (item.id == id) {
+        if (item.quantity == 1) {
+          onRemove(id);
+          return;
+        }
+
         item.quantity--;
         break;
       }

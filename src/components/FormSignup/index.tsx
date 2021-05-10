@@ -1,5 +1,6 @@
 import TextField from 'components/TextField';
-import { SubmitButton, Wrapper, FormError, FormLoading } from 'components/Form';
+import Button from 'components/Button';
+import { Wrapper, FormError, FormLoading } from 'components/Form';
 import React, { useState } from 'react';
 import api from 'services/api';
 import { signIn } from 'next-auth/client';
@@ -74,9 +75,9 @@ const FormSignup = () => {
           onInputChange={(value) => handleInput('password', value)}
         />
 
-        <SubmitButton type="submit">
-          {loading ? <FormLoading /> : <span>Signup now</span>}
-        </SubmitButton>
+        <Button type="submit" fullWidth>
+          {loading ? <FormLoading /> : <>Signup now</>}
+        </Button>
       </form>
     </Wrapper>
   );

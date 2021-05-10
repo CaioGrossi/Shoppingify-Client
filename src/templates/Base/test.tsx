@@ -10,11 +10,11 @@ jest.mock('components/Sidebar', () => {
   };
 });
 
-jest.mock('components/ShoppingList', () => {
+jest.mock('components/AsideListForm', () => {
   return {
     __esModule: true,
     default: function Mock() {
-      return <div data-testid="Mock ShoppingList"></div>;
+      return <div data-testid="Mock AsideListForm"></div>;
     }
   };
 });
@@ -28,7 +28,7 @@ describe('<Base />', () => {
     );
 
     expect(screen.getByTestId(/mock sidebar/i)).toBeInTheDocument();
-    expect(screen.getByTestId(/mock shoppinglist/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/mock asidelistform/i)).toBeInTheDocument();
     expect(
       screen.getByRole('heading', { name: /conteudo/i })
     ).toBeInTheDocument();

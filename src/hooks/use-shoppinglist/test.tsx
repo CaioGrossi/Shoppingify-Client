@@ -7,6 +7,8 @@ import {
 import { renderHook } from '@testing-library/react-hooks';
 import { act } from 'react-dom/test-utils';
 
+import { setStorageItem } from 'utils/localStorage';
+
 describe('useShoppinglist', () => {
   beforeEach(() => {
     window.localStorage.clear();
@@ -94,5 +96,37 @@ describe('useShoppinglist', () => {
     expect(result.current.items).toStrictEqual([
       { id: '1', name: 'cake', quantity: 4 }
     ]);
+  });
+
+  it('should verify is a item already is in list', () => {
+    const wrapper = ({ children }: ShoppingListProviderProps) => (
+      <ShoppingListProvider>{children}</ShoppingListProvider>
+    );
+
+    setStorageItem('listItems', [{ id: '1', name: 'item1', quantity: 1 }]);
+
+    const { result } = renderHook(() => useShoppingList(), {
+      wrapper
+    });
+
+    expect(result.current.isInList('1')).toBe(true);
+  });
+
+  it('should remove items from list when quantity is 1 and onDecrease function is callse', () => {
+    const wrapper = ({ children }: ShoppingListProviderProps) => (
+      <ShoppingListProvider>{children}</ShoppingListProvider>
+    );
+
+    setStorageItem('listItems', [{ id: '1', name: 'item1', quantity: 1 }]);
+
+    const { result } = renderHook(() => useShoppingList(), {
+      wrapper
+    });
+
+    act(() => {
+      result.current.onDecrease('1');
+    });
+
+    expect(result.current.isInList('1')).toBe(false);
   });
 });

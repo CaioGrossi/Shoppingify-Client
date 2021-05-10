@@ -12,9 +12,8 @@ const Home = ({ itemsSections }: HomeTemplateProps) => {
       <S.Header>
         <h1>
           <strong>Shoppingfy</strong> allows you take your <br /> shooping list
-          wherever you go
+          wherever you go.
         </h1>
-
         <SearchBar onChange={() => console.log('oi')} />
       </S.Header>
 

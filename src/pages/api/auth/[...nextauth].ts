@@ -58,6 +58,7 @@ export default NextAuth({
     }
   },
   session: {
+    // 1200s or 20min
     maxAge: 1200
   }
 });

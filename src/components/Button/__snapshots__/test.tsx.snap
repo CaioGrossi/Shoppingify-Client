@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should render correctly 1`] = `
+.c0 {
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #f9a109;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  border-radius: 12px;
+  width: 8.7rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 5rem;
+}
+
+<button
+  class="c0"
+>
+  <span>
+    save
+  </span>
+</button>
+`;

@@ -1,14 +1,16 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
-import { Wrapper, SubmitButton } from '.';
+import { Wrapper, FormError } from '.';
 
 describe('<Form />', () => {
   it('should render the heading', () => {
     const { container } = render(
       <Wrapper>
-        <SubmitButton></SubmitButton>
+        <FormError>error</FormError>
       </Wrapper>
     );
+
+    expect(screen.getByText(/error/i)).toBeInTheDocument();
 
     expect(container.parentElement).toMatchInlineSnapshot(`
       .c0 .sc-bdfBwQ {
@@ -35,16 +37,9 @@ describe('<Form />', () => {
       }
 
       .c1 {
-        background-color: #f9a109;
-        border-radius: 9px;
-        color: white;
-        padding: 1rem 2rem;
-        font-size: 2rem;
-        border: none;
-        font-weight: bold;
-        width: 100%;
-        cursor: pointer;
-        margin-top: 1rem;
+        text-align: center;
+        color: red;
+        font-size: 1.6rem;
       }
 
       <body>
@@ -52,9 +47,11 @@ describe('<Form />', () => {
           <div
             class="c0"
           >
-            <button
+            <div
               class="c1"
-            />
+            >
+              error
+            </div>
           </div>
         </div>
       </body>

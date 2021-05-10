@@ -1,10 +1,11 @@
+import { useState } from 'react';
+import { useShoppingList } from 'hooks/use-shoppinglist';
+
 import { Plus } from '@styled-icons/bootstrap/Plus';
 import { Dash } from '@styled-icons/bootstrap/Dash';
 import { TrashFill } from '@styled-icons/bootstrap/TrashFill';
 
 import * as S from './styles';
-import { useState } from 'react';
-import { useShoppingList } from 'hooks/use-shoppinglist';
 
 export type ShoppingListItemProps = {
   id: string;

@@ -49,6 +49,31 @@ exports[`<FormSignin /> should render the form 1`] = `
   outline: none;
 }
 
+.c7 {
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #f9a109;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  border-radius: 12px;
+  width: 8.7rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 5rem;
+  width: 100%;
+}
+
 .c0 .c1 {
   margin-bottom: 0.5rem;
 }
@@ -70,19 +95,6 @@ exports[`<FormSignin /> should render the form 1`] = `
 
 .c0 h1 {
   font-size: 2.4rem;
-}
-
-.c7 {
-  background-color: #f9a109;
-  border-radius: 9px;
-  color: white;
-  padding: 1rem 2rem;
-  font-size: 2rem;
-  border: none;
-  font-weight: bold;
-  width: 100%;
-  cursor: pointer;
-  margin-top: 1rem;
 }
 
 <body>

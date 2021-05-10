@@ -1,7 +1,8 @@
+import TextField from 'components/TextField';
+import Button from 'components/Button';
+import { Wrapper, FormLoading, FormError } from 'components/Form';
 import { useState } from 'react';
 import { signIn } from 'next-auth/client';
-import TextField from 'components/TextField';
-import { Wrapper, SubmitButton, FormLoading, FormError } from 'components/Form';
 import { useRouter } from 'next/dist/client/router';
 
 const FormSignin = () => {
@@ -55,9 +56,9 @@ const FormSignin = () => {
           onInputChange={(value) => handleInput('password', value)}
         />
 
-        <SubmitButton type="submit">
-          {loading ? <FormLoading /> : <span>Signin now</span>}
-        </SubmitButton>
+        <Button type="submit" fullWidth>
+          {loading ? <FormLoading /> : <>Signin now</>}
+        </Button>
       </form>
     </Wrapper>
   );
