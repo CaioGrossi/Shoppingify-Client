@@ -43,7 +43,7 @@ describe('<ShoppingList />', () => {
     // component shoppingList
     const shoppingList = container.firstChild?.firstChild;
 
-    expect(shoppingList).toHaveStyleRule('right', '-34rem', {
+    expect(shoppingList).toHaveStyleRule('right', '-35.8rem', {
       media: '(max-width: 900px)'
     });
     expect(shoppingList).toHaveStyleRule('position', 'absolute', {

@@ -17,7 +17,7 @@ const wrapperModifiers = {
   close: () => css`
     @media (max-width: 900px) {
       position: absolute;
-      right: -34rem;
+      right: -35.8rem;
     }
   `
 };
