@@ -1,35 +1,37 @@
-import Link from 'next/link';
-
 import { ListUl } from '@styled-icons/bootstrap/ListUl';
 import { FileBarGraph } from '@styled-icons/bootstrap/FileBarGraph';
 import { ArrowCounterclockwise } from '@styled-icons/bootstrap/ArrowCounterclockwise';
+import Link from 'next/link';
 
 import * as S from './styles';
+import { useRouter } from 'next/dist/client/router';
 
 const Sidebar = () => {
+  const router = useRouter();
+
   return (
     <S.Wrapper>
       <S.IconsWrapper>
         <Link href="/">
-          <a>
+          <S.StyledLink active={router.pathname == '/'}>
             <ListUl data-testid="List icon" size={30} title="Items" />
-          </a>
+          </S.StyledLink>
         </Link>
 
-        <Link href="#">
-          <a>
+        <Link href="/shopping-lists">
+          <S.StyledLink active={router.pathname == '/shopping-lists'}>
             <ArrowCounterclockwise
               data-testid="Reset icon"
               size={30}
               title="Lastest lists"
             />
-          </a>
+          </S.StyledLink>
         </Link>
 
         <Link href="#">
-          <a>
+          <S.StyledLink active={false}>
             <FileBarGraph data-testid="Graph icon" size={30} title="Graphics" />
-          </a>
+          </S.StyledLink>
         </Link>
       </S.IconsWrapper>
     </S.Wrapper>

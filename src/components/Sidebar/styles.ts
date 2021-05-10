@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -8,6 +8,23 @@ export const Wrapper = styled.div`
   flex-direction: column;
   background-color: white;
   flex-shrink: 0;
+`;
+
+type StyledLinkProps = {
+  active: boolean;
+};
+
+const styledLinkModifiers = {
+  active: () => css`
+    border-left: 6px solid #f9a109;
+  `
+};
+
+export const StyledLink = styled.a<StyledLinkProps>`
+  ${({ active }) => css`
+    cursor: pointer;
+    ${active && styledLinkModifiers.active()}
+  `}
 `;
 
 export const IconsWrapper = styled.div`
@@ -21,6 +38,7 @@ export const IconsWrapper = styled.div`
     color: black;
     width: fit-content;
     height: fit-content;
+    padding-left: 1.5rem;
   }
 
   a :not(:last-child) {
