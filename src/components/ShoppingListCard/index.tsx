@@ -7,14 +7,14 @@ import Link from 'next/link';
 export type ShoppingListCardProps = {
   id: string;
   name: string;
-  date: string;
+  createdAt: string;
   status: 'open' | 'completed';
 };
 
 const ShoppingListCard = ({
   id,
   name,
-  date,
+  createdAt,
   status
 }: ShoppingListCardProps) => (
   <S.Wrapper>
@@ -22,10 +22,10 @@ const ShoppingListCard = ({
 
     <S.Info>
       <Calendar4Range size={20} color="#C1C1C4" />
-      <span>{date}</span>
+      <span>{createdAt}</span>
       <S.Status status={status}>{status}</S.Status>
       {/* id no link aq */}
-      <Link href={`my-lists/${id}`}>
+      <Link href={`/shopping-lists/${id}`}>
         <a>
           <CaretRightFill size={20} color="#F9A109" />
         </a>

@@ -8,8 +8,8 @@ export const Wrapper = styled.div`
 
 export const Content = styled.main`
   flex: 1 1 auto;
-  padding-left: 8rem;
-  padding-right: 8rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
   padding-top: 3rem;
   background-color: #fafafe;
   height: 100vh;

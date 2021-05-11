@@ -12,7 +12,10 @@ describe('<ShoppingListCard />', () => {
       screen.getByRole('heading', { name: /lista de compras/i })
     ).toBeInTheDocument();
     expect(screen.getByText(/mon 24\.8\.2020/i)).toBeInTheDocument();
-    expect(screen.getByRole('link')).toHaveAttribute('href', '/my-lists/1');
+    expect(screen.getByRole('link')).toHaveAttribute(
+      'href',
+      '/shopping-lists/1'
+    );
     expect(screen.getByText(/open/i)).toBeInTheDocument();
     expect(screen.getByText(/open/i)).toHaveStyle({
       color: '#56ccf2',
@@ -26,7 +29,10 @@ describe('<ShoppingListCard />', () => {
       screen.getByRole('heading', { name: /lista de compras/i })
     ).toBeInTheDocument();
     expect(screen.getByText(/mon 24\.8\.2020/i)).toBeInTheDocument();
-    expect(screen.getByRole('link')).toHaveAttribute('href', '/my-lists/1');
+    expect(screen.getByRole('link')).toHaveAttribute(
+      'href',
+      '/shopping-lists/1'
+    );
     expect(screen.getByText(/completed/i)).toBeInTheDocument();
     expect(screen.getByText(/completed/i)).toHaveStyle({
       color: 'green',

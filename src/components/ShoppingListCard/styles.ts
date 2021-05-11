@@ -10,6 +10,14 @@ export const Wrapper = styled.div`
   border-radius: 12px;
   background-color: white;
   align-items: center;
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 1.8rem;
+    }
+  }
 `;
 
 export const Info = styled.div`
