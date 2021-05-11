@@ -50,7 +50,7 @@ describe('<ItemForm />', () => {
     ).toBeInTheDocument();
   });
 
-  it('should call onComplete function when tries to add a item with a name that doesn`t exists', async () => {
+  it('should call onComplete function when tries to add a item with a name that doesn`t exists and notify', async () => {
     const onComplete = jest.fn();
 
     await act(async () => {
@@ -69,6 +69,8 @@ describe('<ItemForm />', () => {
     userEvent.click(await screen.findByText('fruits'));
 
     userEvent.click(screen.getByRole('button', { name: /save/i }));
+
+    expect(await screen.findByText(/Item saved!/i)).toBeInTheDocument();
 
     waitFor(() => {
       expect(onComplete).toHaveBeenCalledWith(true);

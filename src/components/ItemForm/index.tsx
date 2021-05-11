@@ -2,8 +2,7 @@ import TextField from 'components/TextField';
 import DataListField from 'components/DataListField';
 import Button from 'components/Button';
 import { useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { toast } from 'react-toastify';
 
 import api from 'services/api';
 
@@ -46,6 +45,8 @@ const ItemForm = ({ onCompleted }: ItemFormProps) => {
 
   const notifyError = (message: string) => toast.error(message);
 
+  const notifySuccess = (message: string) => toast.success(message);
+
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
@@ -54,6 +55,7 @@ const ItemForm = ({ onCompleted }: ItemFormProps) => {
         itemName: name,
         categoryId: category
       });
+      notifySuccess('Item saved!');
 
       onCompleted(true);
     } catch (error) {
@@ -63,18 +65,6 @@ const ItemForm = ({ onCompleted }: ItemFormProps) => {
 
   return (
     <S.Wrapper>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        style={{ fontSize: '1.6rem' }}
-      />
       <h1>Add new item</h1>
 
       <S.Form onSubmit={handleSubmit}>

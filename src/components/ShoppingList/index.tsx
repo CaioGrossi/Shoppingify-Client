@@ -2,11 +2,7 @@ import AddNewItem from 'components/AddNewItem';
 import Button from 'components/Button';
 import ShoppingListItem from 'components/ShoppingListItem';
 import TextField from 'components/TextField';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
-
-import { ArrowLeft } from '@styled-icons/bootstrap/ArrowLeft';
-import { ArrowRight } from '@styled-icons/bootstrap/ArrowRight';
+import { toast } from 'react-toastify';
 
 import api from 'services/api';
 import { useShoppingList } from 'hooks/use-shoppinglist';
@@ -24,7 +20,6 @@ const ShoppingList = ({ onCreateItem }: ShoppingListProps) => {
   const { items } = useShoppingList();
   const [listName, setListName] = useState('');
   const [session] = useSession();
-  const [isOpen, setIsOpen] = useState(false);
 
   const router = useRouter();
 
@@ -64,29 +59,8 @@ const ShoppingList = ({ onCreateItem }: ShoppingListProps) => {
   };
 
   return (
-    <S.Wrapper isOpen={isOpen}>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        style={{ fontSize: '1.6rem' }}
-      />
-
+    <S.Wrapper>
       <S.Content>
-        <S.ToggleListButton
-          onClick={() => setIsOpen((prev) => !prev)}
-          aria-label="Open or Close list"
-          data-testid="open/close list"
-        >
-          {isOpen ? <ArrowRight size={28} /> : <ArrowLeft size={28} />}
-        </S.ToggleListButton>
-
         <AddNewItem onAdd={onCreateItem} />
 
         <h1>Shopping list</h1>

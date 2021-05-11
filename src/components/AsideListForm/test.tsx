@@ -30,4 +30,33 @@ describe('<AsideListForm />', () => {
 
     expect(screen.getByTestId(/mock itemform/i)).toBeInTheDocument();
   });
+
+  it('should open and close shopping list in small screeens', () => {
+    const { container } = render(
+      <div style={{ width: '850px' }}>
+        <AsideListForm />
+      </div>
+    );
+
+    // component AsideListForm
+    const asideListForm = container.firstChild?.firstChild;
+
+    expect(asideListForm).toHaveStyleRule('right', '-35.8rem', {
+      media: '(max-width: 900px)'
+    });
+    expect(asideListForm).toHaveStyleRule('position', 'absolute', {
+      media: '(max-width: 900px)'
+    });
+
+    const toggleButton = screen.getByTestId('open/close list');
+
+    userEvent.click(toggleButton);
+
+    expect(asideListForm).toHaveStyleRule('right', '-2.2rem', {
+      media: '(max-width: 900px)'
+    });
+    expect(asideListForm).toHaveStyleRule('position', 'absolute', {
+      media: '(max-width: 900px)'
+    });
+  });
 });
