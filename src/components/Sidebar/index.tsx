@@ -1,10 +1,13 @@
 import { ListUl } from '@styled-icons/bootstrap/ListUl';
 import { FileBarGraph } from '@styled-icons/bootstrap/FileBarGraph';
 import { ArrowCounterclockwise } from '@styled-icons/bootstrap/ArrowCounterclockwise';
+import { BoxArrowLeft } from '@styled-icons/bootstrap/BoxArrowLeft';
+
 import Link from 'next/link';
+import { useRouter } from 'next/dist/client/router';
+import { signOut } from 'next-auth/client';
 
 import * as S from './styles';
-import { useRouter } from 'next/dist/client/router';
 
 const Sidebar = () => {
   const router = useRouter();
@@ -19,7 +22,7 @@ const Sidebar = () => {
         </Link>
 
         <Link href="/shopping-lists">
-          <S.StyledLink active={router.pathname == '/shopping-lists'}>
+          <S.StyledLink active={router.pathname.includes('/shopping-lists')}>
             <ArrowCounterclockwise
               data-testid="Reset icon"
               size={30}
@@ -33,6 +36,14 @@ const Sidebar = () => {
             <FileBarGraph data-testid="Graph icon" size={30} title="Graphics" />
           </S.StyledLink>
         </Link>
+
+        <S.SignOut>
+          <BoxArrowLeft
+            data-testid="SignOut icon"
+            size={30}
+            onClick={() => signOut()}
+          />
+        </S.SignOut>
       </S.IconsWrapper>
     </S.Wrapper>
   );

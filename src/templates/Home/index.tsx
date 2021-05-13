@@ -1,6 +1,6 @@
 import Base from 'templates/Base';
 import SearchBar from 'components/SearchBar';
-import ItemsList, { ItemsListProps } from 'components/ItemsList';
+import ItemsList, { ItemsListProps } from 'components/ListItems';
 
 import * as S from './styles';
 

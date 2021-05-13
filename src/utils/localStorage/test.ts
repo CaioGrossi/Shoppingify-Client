@@ -1,4 +1,4 @@
-import { getStorageItem, setStorageItem } from '.';
+import { getStorageItem, setStorageItem, clearStorage } from '.';
 
 describe('getStorageItem()', () => {
   beforeEach(() => {
@@ -26,6 +26,22 @@ describe('setStorageItem()', () => {
 
     expect(window.localStorage.getItem('SHOPPINGIFY_listItems')).toStrictEqual(
       JSON.stringify([{ id: '1', name: 'cake', quantity: 5 }])
+    );
+  });
+});
+
+describe('clearStorage()', () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
+
+  it('should clear localStorage', () => {
+    setStorageItem('listItems', [{ id: '1', name: 'cake', quantity: 5 }]);
+
+    clearStorage();
+
+    expect(window.localStorage.getItem('SHOPPINGIFY_listItems')).toStrictEqual(
+      null
     );
   });
 });

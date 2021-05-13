@@ -129,4 +129,22 @@ describe('useShoppinglist', () => {
 
     expect(result.current.isInList('1')).toBe(false);
   });
+
+  it('should clear list', () => {
+    const wrapper = ({ children }: ShoppingListProviderProps) => (
+      <ShoppingListProvider>{children}</ShoppingListProvider>
+    );
+
+    setStorageItem('listItems', [{ id: '1', name: 'item1', quantity: 1 }]);
+
+    const { result } = renderHook(() => useShoppingList(), {
+      wrapper
+    });
+
+    act(() => {
+      result.current.clearList();
+    });
+
+    expect(result.current.items).toStrictEqual([]);
+  });
 });

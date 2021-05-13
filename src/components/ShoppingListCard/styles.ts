@@ -27,6 +27,15 @@ export const Info = styled.div`
   font-size: 1.2rem;
   align-items: center;
   color: #c1c1c4;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    width: 18rem;
+
+    & * {
+      margin-bottom: 1rem;
+    }
+  }
 `;
 
 type StatusProps = Pick<ShoppingListCardProps, 'status'>;

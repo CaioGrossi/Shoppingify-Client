@@ -21,4 +21,4 @@ function formatDate(date: Date) {
   return `${week_days[day]} ${day}.${month + 1}.${year}`;
 }
 
-export { formatShoppingListSection };
+export { formatShoppingListSection, formatDate };

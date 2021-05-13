@@ -6,7 +6,7 @@ import Base from 'templates/Base';
 import * as S from './styles';
 
 export type ListSections = {
-  date: Date;
+  date: string;
   lists: ShoppingListCardProps[];
 };
 

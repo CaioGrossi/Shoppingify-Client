@@ -1,12 +1,14 @@
 import ShoppingList from 'components/ShoppingList';
 import ItemForm from 'components/ItemForm';
+
 import { ArrowLeft } from '@styled-icons/bootstrap/ArrowLeft';
 import { ArrowRight } from '@styled-icons/bootstrap/ArrowRight';
+
+import { useState } from 'react';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-
 import * as S from './styles';
-import { useState } from 'react';
 
 const AsideListForm = () => {
   const [isShoppingListActive, setIsShoppingListActive] = useState(true);

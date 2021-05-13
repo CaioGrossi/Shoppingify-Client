@@ -17,7 +17,7 @@ type ShoppingListProps = {
 };
 
 const ShoppingList = ({ onCreateItem }: ShoppingListProps) => {
-  const { items } = useShoppingList();
+  const { items, clearList } = useShoppingList();
   const [listName, setListName] = useState('');
   const [session] = useSession();
 
@@ -52,6 +52,7 @@ const ShoppingList = ({ onCreateItem }: ShoppingListProps) => {
         }
       );
 
+      clearList();
       notifySuccess('List saved!');
     } catch (error) {
       router.push('/sign-in');

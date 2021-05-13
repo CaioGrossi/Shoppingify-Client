@@ -29,7 +29,7 @@ const ItemForm = ({ onCompleted }: ItemFormProps) => {
         setCategories(response.data);
       } catch (error) {
         if (axios.isCancel(error)) {
-          console.log('cancelled');
+          return null;
         } else {
           throw error;
         }

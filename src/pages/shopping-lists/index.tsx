@@ -14,11 +14,14 @@ export default function Lists(props: ShoppingListTemplateProps) {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await protectedRoutes(context);
 
-  const response = await api.get<ListSections[]>('shopping-list/get-by-user', {
-    headers: {
-      Authorization: `Bearer ${session?.jwt}`
+  const response = await api.get<ListSections[]>(
+    'shopping-list/get-all-by-user',
+    {
+      headers: {
+        Authorization: `Bearer ${session?.jwt}`
+      }
     }
-  });
+  );
 
   const data = response.data;
   return {

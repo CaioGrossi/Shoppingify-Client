@@ -15,3 +15,8 @@ export function setStorageItem(key: string, value: ListItem[]) {
   const data = JSON.stringify(value);
   window.localStorage.setItem(`${APP_KEY}_${key}`, data);
 }
+
+export function clearStorage() {
+  if (typeof window === 'undefined') return;
+  window.localStorage.clear();
+}

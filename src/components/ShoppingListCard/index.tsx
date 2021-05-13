@@ -24,7 +24,6 @@ const ShoppingListCard = ({
       <Calendar4Range size={20} color="#C1C1C4" />
       <span>{createdAt}</span>
       <S.Status status={status}>{status}</S.Status>
-      {/* id no link aq */}
       <Link href={`/shopping-lists/${id}`}>
         <a>
           <CaretRightFill size={20} color="#F9A109" />

@@ -1,4 +1,5 @@
 import * as CartItemStyles from 'components/CartItem/styles';
+import * as CheckListItem from 'components/CheckListItem/styles';
 
 import styled from 'styled-components';
 
@@ -21,6 +22,11 @@ export const ItemsWrapper = styled.div`
   flex-wrap: wrap;
 
   ${CartItemStyles.Wrapper} {
+    margin-right: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  ${CheckListItem.Wrapper} {
     margin-right: 1rem;
     margin-bottom: 4rem;
   }

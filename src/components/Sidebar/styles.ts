@@ -2,11 +2,12 @@ import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   height: 100vh;
-  width: 8.8rem;
+  width: 7.2rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
   background-color: white;
+  align-items: center;
   flex-shrink: 0;
 `;
 
@@ -38,10 +39,16 @@ export const IconsWrapper = styled.div`
     color: black;
     width: fit-content;
     height: fit-content;
-    padding-left: 1.5rem;
+    padding-left: 1rem;
   }
 
   a :not(:last-child) {
     margin-bottom: 7.5rem;
   }
+`;
+
+export const SignOut = styled.div`
+  cursor: pointer;
+  padding-left: 1.5rem;
+  flex-grow: 1;
 `;

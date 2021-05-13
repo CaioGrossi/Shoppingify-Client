@@ -1,11 +1,11 @@
 import { screen, render } from '@testing-library/react';
 
-import { itemsSectionMock } from 'components/ItemsList/mock';
+import { cartItemMock } from 'components/ListItems/mock';
 
 import Home from './index';
 
 const props = {
-  itemsSections: itemsSectionMock
+  itemsSections: cartItemMock
 };
 
 jest.mock('templates/Base', () => ({
@@ -15,11 +15,11 @@ jest.mock('templates/Base', () => ({
   }
 }));
 
-jest.mock('components/ItemsList', () => {
+jest.mock('components/ListItems', () => {
   return {
     __esModule: true,
     default: function Mock() {
-      return <div data-testid="mock ItemsList"></div>;
+      return <div data-testid="mock ListItems"></div>;
     }
   };
 });
@@ -34,7 +34,7 @@ jest.mock('components/SearchBar', () => {
 });
 
 describe('<Home />', () => {
-  it('should searchBar, base and itemsList', () => {
+  it('should render searchBar, base and itemsList', () => {
     render(<Home {...props} />);
 
     expect(
@@ -44,7 +44,7 @@ describe('<Home />', () => {
     ).toBeInTheDocument();
 
     expect(screen.getByTestId('mock Base')).toBeInTheDocument();
-    expect(screen.getByTestId('mock ItemsList')).toBeInTheDocument();
+    expect(screen.getByTestId('mock ListItems')).toBeInTheDocument();
     expect(screen.getByTestId('mock searchBar')).toBeInTheDocument();
   });
 });

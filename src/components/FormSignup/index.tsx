@@ -50,6 +50,7 @@ const FormSignup = () => {
           placeholder="First Name"
           type="text"
           label="First Name"
+          required
           onInputChange={(value) => handleInput('first_name', value)}
         />
         <TextField
@@ -57,6 +58,7 @@ const FormSignup = () => {
           placeholder="Last Name"
           type="text"
           label="Last name"
+          required
           onInputChange={(value) => handleInput('last_name', value)}
         />
 
@@ -65,6 +67,7 @@ const FormSignup = () => {
           placeholder="Email"
           type="email"
           label="Email"
+          required
           onInputChange={(value) => handleInput('email', value)}
         />
         <TextField
@@ -72,6 +75,7 @@ const FormSignup = () => {
           placeholder="Password"
           type="password"
           label="Password"
+          required
           onInputChange={(value) => handleInput('password', value)}
         />
 

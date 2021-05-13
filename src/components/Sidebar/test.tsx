@@ -10,7 +10,8 @@ useRouter.mockImplementation(() => ({
   push,
   query: '',
   asPath: '',
-  route: '/'
+  route: '/',
+  pathname: '/'
 }));
 
 describe('<Sidebar />', () => {
@@ -20,5 +21,6 @@ describe('<Sidebar />', () => {
     expect(screen.getByTestId(/list icon/i)).toBeInTheDocument();
     expect(screen.getByTestId(/reset icon/i)).toBeInTheDocument();
     expect(screen.getByTestId(/graph icon/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/signout icon/i)).toBeInTheDocument();
   });
 });

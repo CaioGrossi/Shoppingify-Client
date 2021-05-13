@@ -1,5 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { getStorageItem, setStorageItem } from 'utils/localStorage';
+import {
+  getStorageItem,
+  setStorageItem,
+  clearStorage
+} from 'utils/localStorage';
 
 const LIST_KEY = 'listItems';
 
@@ -16,6 +20,7 @@ export type ShoppingListContextData = {
   onRemove: (id: string) => void;
   onDecrease: (id: string) => void;
   isInList: (id: string) => boolean;
+  clearList: () => void;
 };
 
 export const ShoppingListContextDefaultValues = {
@@ -24,7 +29,8 @@ export const ShoppingListContextDefaultValues = {
   onIncrease: () => null,
   onRemove: () => null,
   onDecrease: () => null,
-  isInList: () => false
+  isInList: () => false,
+  clearList: () => null
 };
 
 export const ShoppingListContext = createContext<ShoppingListContextData>(
@@ -45,6 +51,11 @@ const ShoppingListProvider = ({ children }: ShoppingListProviderProps) => {
       setItems(data);
     }
   }, []);
+
+  const clearList = () => {
+    setItems([]);
+    clearStorage();
+  };
 
   const saveItems = (listItems: ListItem[]) => {
     setItems(listItems);
@@ -101,7 +112,15 @@ const ShoppingListProvider = ({ children }: ShoppingListProviderProps) => {
 
   return (
     <ShoppingListContext.Provider
-      value={{ items, onAdd, onDecrease, onRemove, onIncrease, isInList }}
+      value={{
+        items,
+        onAdd,
+        onDecrease,
+        onRemove,
+        onIncrease,
+        isInList,
+        clearList
+      }}
     >
       {children}
     </ShoppingListContext.Provider>
