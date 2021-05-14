@@ -3,6 +3,7 @@ import Button from 'components/Button';
 import ShoppingListItem from 'components/ShoppingListItem';
 import TextField from 'components/TextField';
 import { toast } from 'react-toastify';
+import { FormLoading } from 'components/Form';
 
 import api from 'services/api';
 import { useShoppingList } from 'hooks/use-shoppinglist';
@@ -20,6 +21,7 @@ const ShoppingList = ({ onCreateItem }: ShoppingListProps) => {
   const { items, clearList } = useShoppingList();
   const [listName, setListName] = useState('');
   const [session] = useSession();
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -38,6 +40,8 @@ const ShoppingList = ({ onCreateItem }: ShoppingListProps) => {
       return;
     }
 
+    setLoading(true);
+
     try {
       await api.post(
         'shopping-list/create',
@@ -53,6 +57,7 @@ const ShoppingList = ({ onCreateItem }: ShoppingListProps) => {
       );
 
       clearList();
+      setLoading(false);
       notifySuccess('List saved!');
     } catch (error) {
       router.push('/sign-in');
@@ -85,7 +90,9 @@ const ShoppingList = ({ onCreateItem }: ShoppingListProps) => {
           onInputChange={(value) => setListName(value)}
         />
 
-        <Button onClick={handleListSubmit}>Save</Button>
+        <Button onClick={handleListSubmit}>
+          {loading ? <FormLoading /> : <span>Save</span>}
+        </Button>
       </S.Footer>
     </S.Wrapper>
   );

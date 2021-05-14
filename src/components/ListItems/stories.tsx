@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react/types-6-0';
 import ItemsList, { ItemsListProps } from '.';
 
-import { itemsSectionMock } from './mock';
+import { cartItemMock, checkListMock } from './mock';
 
 export default {
   title: 'ItemsList',
@@ -16,5 +16,13 @@ export default {
 export const Default: Story<ItemsListProps> = (args) => <ItemsList {...args} />;
 
 Default.args = {
-  itemsSections: itemsSectionMock
+  itemsSections: cartItemMock
+};
+
+export const CheckList: Story<ItemsListProps> = (args) => (
+  <ItemsList {...args} checkList />
+);
+
+CheckList.args = {
+  itemsSections: checkListMock
 };
