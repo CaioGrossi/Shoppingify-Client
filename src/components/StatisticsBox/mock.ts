@@ -1,6 +1,5 @@
 const statisticsMock = {
   name: 'Top Items',
-  color: 'orange' as 'orange' | 'blue',
   items: [
     {
       name: 'Laranja',

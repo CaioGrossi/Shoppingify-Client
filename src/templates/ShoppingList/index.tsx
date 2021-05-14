@@ -1,6 +1,7 @@
 import { CategoryItemsSections } from 'components/ListItems';
 import ListItems from 'components/ListItems';
 import Base from 'templates/Base';
+import DeleteListModal from 'components/DeleteListModal';
 
 import { ArrowLeft } from '@styled-icons/bootstrap/ArrowLeft';
 import { Calendar4Range } from '@styled-icons/bootstrap/Calendar4Range';
@@ -10,6 +11,9 @@ import Link from 'next/link';
 import { formatDate } from 'utils/mappers';
 import { useSession } from 'next-auth/client';
 import * as S from './styles';
+import Button from 'components/Button';
+import { useState } from 'react';
+import { useRouter } from 'next/dist/client/router';
 
 export type ShoppingListProps = {
   id: string;
@@ -20,6 +24,8 @@ export type ShoppingListProps = {
 
 const ShoppingList = ({ id, name, date, itemsSections }: ShoppingListProps) => {
   const [session] = useSession();
+  const router = useRouter();
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const onCheckItem = async (itemId: string) => {
     await api.post(
@@ -34,6 +40,26 @@ const ShoppingList = ({ id, name, date, itemsSections }: ShoppingListProps) => {
         }
       }
     );
+  };
+
+  const onDeleteList = async () => {
+    try {
+      await api.post(
+        'shopping-list/delete',
+        {
+          id: id
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${session?.jwt}`
+          }
+        }
+      );
+
+      router.push('/shopping-lists');
+    } catch (error) {
+      router.push('/sign-in');
+    }
   };
 
   return (
@@ -57,6 +83,16 @@ const ShoppingList = ({ id, name, date, itemsSections }: ShoppingListProps) => {
           checkList
           itemsSections={itemsSections}
           onCheck={onCheckItem}
+        />
+
+        <Button color="red" onClick={() => setIsDeleteModalOpen(true)}>
+          Delete
+        </Button>
+
+        <DeleteListModal
+          isOpen={isDeleteModalOpen}
+          onConfirm={() => onDeleteList()}
+          onCancel={() => setIsDeleteModalOpen(false)}
         />
       </S.Wrapper>
     </Base>

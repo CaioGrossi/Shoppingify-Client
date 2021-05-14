@@ -49,6 +49,6 @@ export const IconsWrapper = styled.div`
 
 export const SignOut = styled.div`
   cursor: pointer;
-  padding-left: 1.5rem;
+  padding-left: 1rem;
   flex-grow: 1;
 `;

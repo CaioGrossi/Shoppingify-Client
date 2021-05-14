@@ -2,6 +2,7 @@ import { screen, render } from '@testing-library/react';
 import ShoppingList from 'templates/ShoppingList';
 import { mockShoppingLits } from './mock';
 import 'session.mock';
+import userEvent from '@testing-library/user-event';
 
 jest.mock('templates/Base', () => ({
   __esModule: true,
@@ -28,5 +29,15 @@ describe('<ShoppingList />', () => {
 
     expect(screen.getByText(/fri 4\.5\.2021/i)).toBeInTheDocument();
     expect(screen.getByTestId(/mock listitems/i)).toBeInTheDocument();
+  });
+
+  it('should show modal when delete button is clicked', () => {
+    render(<ShoppingList {...mockShoppingLits} />);
+
+    userEvent.click(screen.getByRole('button', { name: /delete/i }));
+
+    expect(
+      screen.getByText(/are you shure that you want to delete this list\?/i)
+    ).toBeInTheDocument();
   });
 });

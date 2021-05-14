@@ -4,7 +4,6 @@ exports[`<Button /> should render correctly 1`] = `
 .c0 {
   cursor: pointer;
   font-weight: 600;
-  background-color: #f9a109;
   color: white;
   font-size: 2rem;
   border: none;
@@ -23,10 +22,12 @@ exports[`<Button /> should render correctly 1`] = `
   -ms-flex-align: center;
   align-items: center;
   height: 5rem;
+  background-color: #f9a109;
 }
 
 <button
   class="c0"
+  color="primary"
 >
   <span>
     save

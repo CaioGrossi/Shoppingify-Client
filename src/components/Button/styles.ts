@@ -9,16 +9,22 @@ const wrapperModifiers = {
   `,
   fullWidth: () => css`
     width: 100%;
+  `,
+
+  red: () => css`
+    background-color: #eb5757;
+  `,
+  primary: () => css`
+    background-color: #f9a109;
   `
 };
 
-type WrapperProps = Pick<ButtonProps, 'minimal' | 'fullWidth'>;
+type WrapperProps = Pick<ButtonProps, 'minimal' | 'fullWidth' | 'color'>;
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ minimal, fullWidth }) => css`
+  ${({ minimal, fullWidth, color }) => css`
     cursor: pointer;
     font-weight: 600;
-    background-color: #f9a109;
     color: white;
     font-size: 2rem;
     border: none;
@@ -28,6 +34,8 @@ export const Wrapper = styled.button<WrapperProps>`
     justify-content: center;
     align-items: center;
     height: 5rem;
+
+    ${color && wrapperModifiers[color]()}
 
     ${minimal && wrapperModifiers.minimal()}
     ${fullWidth && wrapperModifiers.fullWidth()};
