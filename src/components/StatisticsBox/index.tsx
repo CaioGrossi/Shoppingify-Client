@@ -1,14 +1,14 @@
 import * as S from './styles';
 
-type Items = {
+export type Item = {
   name: string;
   percentage: number;
 };
 
 export type StatisticsBoxProps = {
   name: string;
-  items: Items[];
-  color: 'orange' | 'blue';
+  items: Item[];
+  color?: 'orange' | 'blue';
 };
 
 const StatisticsBox = ({
@@ -20,16 +20,20 @@ const StatisticsBox = ({
     <h1>{name}</h1>
 
     <S.ItemsWrapper>
-      {items.map((item) => (
-        <S.Item key={item.name}>
-          <S.ItemHeader>
-            <span>{item.name}</span>
-            <span>{item.percentage} %</span>
-          </S.ItemHeader>
+      {items.length > 0 ? (
+        items.map((item) => (
+          <S.Item key={item.name}>
+            <S.ItemHeader>
+              <span>{item.name}</span>
+              <span>{item.percentage} %</span>
+            </S.ItemHeader>
 
-          <S.PercentageBar color={color} value={item.percentage} max="100" />
-        </S.Item>
-      ))}
+            <S.PercentageBar color={color} value={item.percentage} max="100" />
+          </S.Item>
+        ))
+      ) : (
+        <h1>You don`t have any statistics yet</h1>
+      )}
     </S.ItemsWrapper>
   </S.Wrapper>
 );

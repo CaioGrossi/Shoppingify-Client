@@ -31,8 +31,8 @@ const Sidebar = () => {
           </S.StyledLink>
         </Link>
 
-        <Link href="#">
-          <S.StyledLink active={false}>
+        <Link href="/statistics">
+          <S.StyledLink active={router.pathname == '/statistics'}>
             <FileBarGraph data-testid="Graph icon" size={30} title="Graphics" />
           </S.StyledLink>
         </Link>

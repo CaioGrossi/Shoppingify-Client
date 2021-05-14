@@ -24,15 +24,6 @@ jest.mock('components/ListItems', () => {
   };
 });
 
-jest.mock('components/SearchBar', () => {
-  return {
-    __esModule: true,
-    default: function Mock() {
-      return <div data-testid="mock searchBar"></div>;
-    }
-  };
-});
-
 describe('<Home />', () => {
   it('should render searchBar, base and itemsList', () => {
     render(<Home {...props} />);
@@ -45,6 +36,5 @@ describe('<Home />', () => {
 
     expect(screen.getByTestId('mock Base')).toBeInTheDocument();
     expect(screen.getByTestId('mock ListItems')).toBeInTheDocument();
-    expect(screen.getByTestId('mock searchBar')).toBeInTheDocument();
   });
 });

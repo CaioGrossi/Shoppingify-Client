@@ -36,4 +36,18 @@ describe('<StatisticsBox />', () => {
       }
     );
   });
+
+  it('should show message when 0 items is passed', () => {
+    render(<StatisticsBox {...statisticsMock} items={[]} />);
+
+    expect(
+      screen.getByRole('heading', { name: /top items/i })
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole('heading', {
+        name: /you don`t have any statistics yet/i
+      })
+    ).toBeInTheDocument();
+  });
 });

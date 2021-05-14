@@ -4,11 +4,15 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 32rem;
+  width: 35rem;
 
   > h1 {
     margin-bottom: 3.8rem;
     font-size: 2.4rem;
+  }
+
+  @media (max-width: 450px) {
+    width: 100%;
   }
 `;
 export const Item = styled.div`
@@ -21,6 +25,7 @@ export const ItemsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 40rem;
+  padding-right: 1.5rem;
   overflow-y: scroll;
   width: 100%;
 

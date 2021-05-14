@@ -28,4 +28,16 @@ describe('<ShoppingLists />', () => {
     expect(screen.getByRole('heading', { name: /today/i })).toBeInTheDocument();
     expect(screen.getAllByTestId(/mock shoppinglistcard/i)).toHaveLength(3);
   });
+
+  it('should render message when 0 items is passed', () => {
+    render(<ShoppingLists listsSection={[]} />);
+
+    expect(
+      screen.getByRole('heading', { name: /shopping history/i })
+    ).toBeInTheDocument();
+
+    expect(
+      screen.getByRole('heading', { name: /you don`t have any lists yet/i })
+    ).toBeInTheDocument();
+  });
 });
