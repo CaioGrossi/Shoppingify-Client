@@ -97,6 +97,15 @@ exports[`<FormSignin /> should render the form 1`] = `
   font-size: 2.4rem;
 }
 
+.c8 {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.c8 a {
+  color: #f9a109;
+}
+
 <body>
   <div>
     <div
@@ -160,6 +169,17 @@ exports[`<FormSignin /> should render the form 1`] = `
           </span>
         </button>
       </form>
+      <h2
+        class="c8"
+      >
+        Not have an account yet?
+         
+        <a
+          href="/sign-up"
+        >
+          Sign up
+        </a>
+      </h2>
     </div>
   </div>
 </body>

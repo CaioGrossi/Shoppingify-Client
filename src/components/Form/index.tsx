@@ -31,3 +31,12 @@ export const FormError = styled.div`
   color: red;
   font-size: 1.6rem;
 `;
+
+export const FormLink = styled.h2`
+  margin-top: 1rem;
+
+  font-size: 1.5rem;
+  a {
+    color: #f9a109;
+  }
+`;

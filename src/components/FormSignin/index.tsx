@@ -1,9 +1,10 @@
 import TextField from 'components/TextField';
 import Button from 'components/Button';
-import { Wrapper, FormLoading, FormError } from 'components/Form';
+import { Wrapper, FormLoading, FormError, FormLink } from 'components/Form';
 import { useState } from 'react';
 import { signIn } from 'next-auth/client';
 import { useRouter } from 'next/dist/client/router';
+import Link from 'next/link';
 
 const FormSignin = () => {
   const [values, setValues] = useState({ email: '', password: '' });
@@ -60,6 +61,13 @@ const FormSignin = () => {
           {loading ? <FormLoading /> : <>Signin now</>}
         </Button>
       </form>
+
+      <FormLink>
+        Not have an account yet?{' '}
+        <Link href="/sign-up">
+          <a>Sign up</a>
+        </Link>
+      </FormLink>
     </Wrapper>
   );
 };
