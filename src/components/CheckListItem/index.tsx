@@ -13,10 +13,10 @@ const CheckListItem = ({
   checked
 }: CheckListItemProps) => (
   <S.Wrapper>
-    <label htmlFor="checkItem">{name}</label>
+    <label htmlFor={name}>{name}</label>
     <span>{`${quantity} pcs`}</span>
     <S.CheckBox
-      id="checkItem"
+      id={name}
       type="checkbox"
       onChange={() => onCheck(id)}
       defaultChecked={checked}
