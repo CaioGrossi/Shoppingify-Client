@@ -24,6 +24,7 @@
     "@styled-icons/bootstrap": "^10.29.0",
     "@testing-library/user-event": "^13.0.7",
     "axios": "^0.21.1",
+    "dotenv": "^9.0.2",
     "next": "10.0.9",
     "next-auth": "^3.19.8",
     "next-pwa": "^5.0.6",

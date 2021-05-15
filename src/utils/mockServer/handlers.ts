@@ -5,28 +5,31 @@ type ItemCreateBody = {
 };
 
 export const handlers = [
-  rest.post('http://localhost:3333/shopping-list/create', (req, res, ctx) => {
-    const token = req.headers.get('Authorization');
+  rest.post(
+    `${process.env.NEXT_PUBLIC_API_URL}shopping-list/create`,
+    (req, res, ctx) => {
+      const token = req.headers.get('Authorization');
 
-    if (token == 'Bearer invalid token') {
+      if (token == 'Bearer invalid token') {
+        return res(
+          ctx.status(401),
+          ctx.json({
+            statusCode: 401,
+            message: 'Unauthorized'
+          })
+        );
+      }
+
       return res(
-        ctx.status(401),
+        ctx.status(200),
         ctx.json({
-          statusCode: 401,
-          message: 'Unauthorized'
+          status: 'created'
         })
       );
     }
-
-    return res(
-      ctx.status(200),
-      ctx.json({
-        status: 'created'
-      })
-    );
-  }),
+  ),
   rest.post<ItemCreateBody>(
-    'http://localhost:3333/item/create',
+    `${process.env.NEXT_PUBLIC_API_URL}item/create`,
     (req, res, ctx) => {
       const { itemName } = req.body;
 
@@ -48,23 +51,26 @@ export const handlers = [
       );
     }
   ),
-  rest.get('http://localhost:3333/category/index', (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json([
-        {
-          id: '1',
-          name: 'fruits'
-        },
-        {
-          id: '2',
-          name: 'milks'
-        },
-        {
-          id: '3',
-          name: 'meats'
-        }
-      ])
-    );
-  })
+  rest.get(
+    `${process.env.NEXT_PUBLIC_API_URL}category/index`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json([
+          {
+            id: '1',
+            name: 'fruits'
+          },
+          {
+            id: '2',
+            name: 'milks'
+          },
+          {
+            id: '3',
+            name: 'meats'
+          }
+        ])
+      );
+    }
+  )
 ];
