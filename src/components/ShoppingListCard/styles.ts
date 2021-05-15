@@ -9,7 +9,12 @@ export const Wrapper = styled.div`
   font-size: 1.6rem;
   border-radius: 12px;
   background-color: white;
+  word-break: break-word;
   align-items: center;
+
+  > h2 {
+    max-width: 50%;
+  }
 
   @media (max-width: 1100px) {
     flex-direction: column;

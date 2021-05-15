@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   background-color: white;
   align-items: center;
   border-radius: 1.2rem;
+  word-break: break-word;
 
   > span {
     color: #f9a10a;
@@ -15,6 +16,7 @@ export const Wrapper = styled.div`
   }
   > label {
     font-size: 1.4rem;
+    max-width: 10rem;
   }
 `;
 
