@@ -9,7 +9,7 @@ import api from 'services/api';
 import * as S from './styles';
 import axios from 'axios';
 
-type ItemFormProps = {
+export type ItemFormProps = {
   onCompleted: (state: boolean) => void;
 };
 
