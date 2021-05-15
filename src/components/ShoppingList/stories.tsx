@@ -15,7 +15,9 @@ export default {
   }
 } as Meta;
 
-export const Default: Story = (args) => <ShoppingList {...args} />;
+export const Default: Story = (args) => (
+  <ShoppingList {...args} onCreateItem={() => null} />
+);
 
 Default.args = {
   shoppinglistContextValue: {
