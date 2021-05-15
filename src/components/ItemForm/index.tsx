@@ -8,6 +8,7 @@ import api from 'services/api';
 
 import * as S from './styles';
 import axios from 'axios';
+import router from 'next/dist/client/router';
 
 export type ItemFormProps = {
   onCompleted: (state: boolean) => void;
@@ -56,6 +57,7 @@ const ItemForm = ({ onCompleted }: ItemFormProps) => {
         categoryId: category
       });
       notifySuccess('Item saved!');
+      router.replace(router.asPath);
 
       onCompleted(true);
     } catch (error) {
