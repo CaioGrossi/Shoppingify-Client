@@ -1,5 +1,5 @@
 # Shoppingify
-A aplicação Shoppingify é uma espécie de super lista de compras que você pode levar para qualquer lugar. Um usuário pode adicionar items por categorias já pré-cadastradas e esses itens serão públicos para qualquer usuário pode adicionar em sua lista também. O usuário além de ter acesso a suas listas e função como deletar a lista e check-list do items, também pode vizualizar suas estatísticas como items e categorias mais usados em suas listas.
+A aplicação Shoppingify é uma espécie de super lista de compras que você pode levar para qualquer lugar. Um usuário pode adicionar items por categorias já pré-cadastradas e esses itens serão públicos para qualquer usuário poder adicionar em sua lista também. Além de ter acesso a suas listas e função como deletar a lista e check-list do items, o usuário também pode vizualizar suas estatísticas como items e categorias mais usados em suas listas.
 
 
 ## Pré-requisitos
