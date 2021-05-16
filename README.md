@@ -34,10 +34,10 @@ Como já falado nos dois tópicos acima, todos os componentes e paginas tem um t
 Para esse projeto decidi utilizar a biblioteca Next Auth por sua facilidade e funcinalidades que são perfeitas para o problema. A biblioteca permite a autenticação por vários tipos (como conta google, apple, email e etc) e facilita o acesso aos dados do usuário, tanto no server side, quanto no client side (o que facilita muito para controlar chamadas autenticadas a API).
 
 ### Utilização das principais features do NextJs
-Todas as paginas utilizam a geração por servidor (getServerSideProps) que é uma opção oferecida pelo framework. Para esse projeto em sí, não era tão crucial a utlização dessa geração já que não depende tanto de coisas como SEO, mas atendeu muito bem a demanda genrando paginas de forma rápida e performática. Muitas vezes foram utilizados recursos de rotas como 'pathname' (utilizado no componente Sidebar para identificar a atual rota) e de 'push' para o redirecionamento.
+Todas as paginas utilizam a geração por servidor (getServerSideProps) que é uma opção oferecida pelo framework. Para esse projeto em sí, não era tão crucial a utlização dessa geração já que não depende tanto de coisas como SEO, mas atendeu muito bem a demanda gerando paginas de forma rápida e performática. Muitas vezes foram utilizados recursos de rotas como 'pathname' (utilizado no componente Sidebar para identificar a atual rota) e de 'push' para o redirecionamento.
 
 ### Deploy 
-Como utilizei NextJs, o deploy foi feito na plataforma da vercel que é sem duvidas o jeito mais facil e simples de colocar uma aplicação Next em produção. É bastente simples de utlizar, o único ponto que tive que ter mais antenção foi na parte de variaveis de ambiente (como mudar a rota da API dependendo do ambiente em que a aplicação está rodando).
+Como utilizei NextJs, o deploy foi feito na plataforma da vercel que é sem duvidas o jeito mais fácil e simples de colocar uma aplicação Next em produção. É bem intuitivo de utlizar, o único ponto que tive que ter mais antenção foi na parte de variaveis de ambiente (como mudar a rota da API dependendo do ambiente em que a aplicação está rodando).
 
 ## Tópicos estudados
 * React
