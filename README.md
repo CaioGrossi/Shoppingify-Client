@@ -12,7 +12,7 @@ yarn ou npm install
 ```
 para instalar as dependencias
 ```
-yarn start ou npm start
+yarn dev ou npm run dev
 ```
 para executar o projeto.
 
