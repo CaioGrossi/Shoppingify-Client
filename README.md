@@ -36,6 +36,9 @@ Para esse projeto decidi utilizar a biblioteca Next Auth por sua facilidade e fu
 ### Utilização das principais features do NextJs
 Todas as paginas utilizam a geração por servidor (getServerSideProps) que é uma opção oferecida pelo framework. Para esse projeto em sí, não era tão crucial a utlização dessa geração já que não depende tanto de coisas como SEO, mas atendeu muito bem a demanda gerando paginas de forma rápida e performática. Muitas vezes foram utilizados recursos de rotas como 'pathname' (utilizado no componente Sidebar para identificar a atual rota) e de 'push' para o redirecionamento.
 
+### Context API
+Sem dúvida uma das pricipais funcionalidades foi a Context API do React. Ela que que mantem a comunicação entre o componente de listagem de items de do componente da lista de comprar.  Tem como principais funções de adicionar, remover, aumentar e diminuir a quantidade de items em sua lista. Como não podia faltar, tem testes para garantir o bom funcionamento de suas renposabilidades também.
+
 ### Deploy 
 Como utilizei NextJs, o deploy foi feito na plataforma da vercel que é sem duvidas o jeito mais fácil e simples de colocar uma aplicação Next em produção. É bem intuitivo de utlizar, o único ponto que tive que ter mais antenção foi na parte de variaveis de ambiente (como mudar a rota da API dependendo do ambiente em que a aplicação está rodando).
 
