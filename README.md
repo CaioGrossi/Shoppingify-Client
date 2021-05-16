@@ -47,4 +47,4 @@ Como utilizei NextJs, o deploy foi feito na plataforma da vercel que é sem duvi
 * Manipulação de dados de API
 * Context API
 * Typescript
-* (Muitos!) Testes unitários com React Testing Library e Jest
+* (Muitos!) Testes unitários com React Testing Library, Jest e MSW
