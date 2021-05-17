@@ -43,7 +43,9 @@ const DataListField = ({ categories, onChange }: DataListFieldProps) => {
 
       <S.Datalist isOpen={isDatalistOpen}>
         {categories
-          .filter((catgorie) => catgorie.name.includes(categorieName))
+          .filter((categorie) =>
+            categorie.name.toLowerCase().includes(categorieName.toLowerCase())
+          )
           .map((categorie) => (
             <OptionTag
               id={categorie.id}
