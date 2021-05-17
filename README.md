@@ -5,6 +5,10 @@ A aplicação Shoppingify é uma espécie de super lista de compras que você po
   <img src="/demo/demo_shoppingify_desktop.gif" />
 </p>
 
+<p align="center">
+  <img src="/demo/demo_shoppingify_mobile.gif" />
+</p>
+
 
 ## Pré-requisitos
 Ter uma versão atualizada do NodeJS instalada em sua máquina e um gerenciador de pacotes (yarn ou npm).
