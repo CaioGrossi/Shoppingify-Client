@@ -27,7 +27,7 @@ describe('<ShoppingList />', () => {
       screen.getByRole('heading', { name: mockShoppingLits.name })
     ).toBeInTheDocument();
 
-    expect(screen.getByText(/fri 4\.5\.2021/i)).toBeInTheDocument();
+    expect(screen.getByText(/thu 13\.5\.2021/i)).toBeInTheDocument();
     expect(screen.getByTestId(/mock listitems/i)).toBeInTheDocument();
   });
 

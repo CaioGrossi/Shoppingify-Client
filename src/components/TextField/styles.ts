@@ -54,4 +54,8 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
+  &:-webkit-autofill {
+    box-shadow: #fafafe 0px 0px 0px 2.4rem inset;
+    filter: none;
+  }
 `;

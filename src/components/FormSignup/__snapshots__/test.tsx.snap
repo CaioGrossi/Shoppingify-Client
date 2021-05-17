@@ -49,6 +49,12 @@ exports[`<FormSignup /> should render the form 1`] = `
   outline: none;
 }
 
+.c6:-webkit-autofill {
+  box-shadow: #fafafe 0px 0px 0px 2.4rem inset;
+  -webkit-filter: none;
+  filter: none;
+}
+
 .c7 {
   cursor: pointer;
   font-weight: 600;

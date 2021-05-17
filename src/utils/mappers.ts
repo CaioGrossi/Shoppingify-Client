@@ -13,12 +13,13 @@ function formatShoppingListSection(data: ListSections[]) {
 }
 
 function formatDate(date: Date) {
-  const week_days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  const day = date.getDay();
+  const week_days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const dayWeeek = date.getDay();
+  const dayMonth = date.getDate();
   const month = date.getMonth();
   const year = date.getFullYear();
 
-  return `${week_days[day]} ${day}.${month + 1}.${year}`;
+  return `${week_days[dayWeeek]} ${dayMonth}.${month + 1}.${year}`;
 }
 
 export { formatShoppingListSection, formatDate };
