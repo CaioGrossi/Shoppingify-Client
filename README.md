@@ -1,58 +1,53 @@
+# Shoppingify
+A aplicação Shoppingify é uma espécie de super lista de compras que você pode levar para qualquer lugar. Um usuário pode adicionar items por categorias já pré-cadastradas e esses itens serão públicos para qualquer um poder adicionar em sua lista também. Além de ter acesso a suas listas e função como deletar a lista e check-list do items, o usuário também pode vizualizar suas estatísticas como items e categorias mais usados em suas listas.
 
-![React Avançado](https://raw.githubusercontent.com/React-Avancado/boilerplate/master/public/img/logo-gh.svg)
 
-This is a [Next.js](https://nextjs.org/) boilerplate to be used in a course called [React Avançado](https://reactavancado.com.br/).
-![ci](https://github.com/React-Avancado/boilerplate/workflows/ci/badge.svg)
-## What is inside?
+## Pré-requisitos
+Ter uma versão atualizada do NodeJS instalada em sua máquina e um gerenciador de pacotes (yarn ou npm).
 
-This project uses lot of stuff as:
-
-- [TypeScript](https://www.typescriptlang.org/)
-- [NextJS](https://nextjs.org/)
-- [Styled Components](https://styled-components.com/)
-- [Jest](https://jestjs.io/)
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-- [Storybook](https://storybook.js.org/)
-- [Eslint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-- [Husky](https://github.com/typicode/husky)
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+## Como executar
+Vá até a paste do projeto e digite:
 ```
+yarn ou npm install
+```
+para instalar as dependencias
+```
+yarn dev ou npm run dev
+```
+para executar o projeto.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Aviso
+A aplicação consome uma API própria também, onde o codigo fonte pode ser encontrado [aqui](https://github.com/CaioGrossi/Shoppingify-API). Para fazer a aplicação rodar corretamente na sua máquina local, siga as intruções descritas no README.md do codigo fonte da API. Se quiser apenas vizualizar os componentes, rode o comando ``` yarn storybook ```.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Habilidades desenvolvidas/aprimadoras com o desenvolvimento desse projeto
 
-## Commands
+### Componentização
+Por ser um projeto que possui muitos componentes e uma quantidade média de páginas, foi possível explorar bem a parte de componentização com React. Os componentes foram estruturados de modo a serem reutilizáveis e estilizados com CSS in JS. Cada componente possui um teste unitário também, para assegurar o bom funcionamento de suas responsabilidades utilizando Jest e React Testing Library. Pela quantidade de componentes, em alguns casos pude experimentar metodologias como TDD.
 
-- `dev`: runs your application on `localhost:3000`
-- `build`: creates the production build version
-- `start`: starts a simple server with the build production code
-- `lint`: runs the linter in all components and pages
-- `test`: runs jest to test all components and pages
-- `test:watch`: runs jest in watch mode
-- `storybook`: runs storybook on `localhost:6006`
-- `build-storybook`: create the build version of storybook
+### Paginas e templates
+No que se diz as páginas da aplicação, optei por separar cada página em templates para facilitar os testes e separar as responsabilidades de consumir a API (que foi tomada pelos arquivos na paginas 'page' do projeto, o próprio arquivo de pagina do Next), e de mostrar os dados (tomada pelos templates). Com essa abordagem, pude criar templates que são usados em todas as páginas, como o "Base" que possui a base para as telas internas  e o "Auth" que possui a base para telas de de autenticação.
 
-## Learn More
+### Testes unitários
+Como já falado nos dois tópicos acima, todos os componentes e paginas tem um teste unitário para suas funcionalidades. Pude explorar bastente as funcionalidades do Jest (desde coisas básicas como as funções de matchers até mocks de funções de outros pacotes), da React Testing Library (como as queries síncronas e assíncronas) e de ferramentas como MSW (Mock Service Worker, utilizado para mock de rotas da API). Com os testes, pude ter mais segurança ao desenvolver o projeto e adicionar mais funcionalidades. 
 
-To learn more about Next.js, take a look at the following resources:
+### Autenticação de usuário
+Para esse projeto decidi utilizar a biblioteca Next Auth por sua facilidade e funcinalidades que são perfeitas para o problema. A biblioteca permite a autenticação por vários tipos (como conta google, apple, email e etc) e facilita o acesso aos dados do usuário, tanto no server side, quanto no client side (o que facilita muito para controlar chamadas autenticadas a API).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Utilização das principais features do NextJs
+Todas as paginas utilizam a geração por servidor (getServerSideProps) que é uma opção oferecida pelo framework. Para esse projeto em sí, não era tão crucial a utlização dessa geração já que não depende tanto de coisas como SEO, mas atendeu muito bem a demanda gerando paginas de forma rápida e performática. Muitas vezes foram utilizados recursos de rotas como 'pathname' (utilizado no componente Sidebar para identificar a atual rota) e de 'push' para o redirecionamento.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Context API
+Sem dúvida uma das pricipais funcionalidades foi a Context API do React. Ela que que mantem a comunicação entre o componente de listagem de items de do componente da lista de comprar.  Tem como principais funções de adicionar, remover, aumentar e diminuir a quantidade de items em sua lista. Como não podia faltar, tem testes para garantir o bom funcionamento de suas renposabilidades também.
 
-## Deploy on Vercel
+### Deploy 
+Como utilizei NextJs, o deploy foi feito na plataforma da vercel que é sem duvidas o jeito mais fácil e simples de colocar uma aplicação Next em produção. É bem intuitivo de utlizar, o único ponto que tive que ter mais antenção foi na parte de variaveis de ambiente (como mudar a rota da API dependendo do ambiente em que a aplicação está rodando).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Tópicos estudados
+* React
+* Next JS
+* Next Auth
+* Styled Components
+* Manipulação de dados de API
+* Context API
+* Typescript
+* (Muitos!) Testes unitários com React Testing Library, Jest e MSW
