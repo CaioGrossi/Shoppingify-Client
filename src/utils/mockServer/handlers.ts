@@ -72,5 +72,28 @@ export const handlers = [
         ])
       );
     }
+  ),
+  rest.post(
+    `${process.env.NEXT_PUBLIC_API_URL}shopping-list/delete`,
+    (req, res, ctx) => {
+      const token = req.headers.get('Authorization');
+
+      if (token == 'Bearer invalid token') {
+        return res(
+          ctx.status(401),
+          ctx.json({
+            statusCode: 401,
+            message: 'Unauthorized'
+          })
+        );
+      }
+
+      return res(
+        ctx.status(200),
+        ctx.json({
+          status: 'deleted'
+        })
+      );
+    }
   )
 ];

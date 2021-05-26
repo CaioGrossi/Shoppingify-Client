@@ -21,6 +21,7 @@ useRouter.mockImplementation(() => ({
 }));
 
 const onCreate = jest.fn();
+
 describe('<ShoppingList />', () => {
   it('should render correctly the items', () => {
     const shoppinglistProviderProps = {
@@ -120,6 +121,7 @@ describe('<ShoppingList />', () => {
       jwt: 'invalid token',
       user: { email: 'lorem@ipsum.com' }
     };
+
     useSession.mockImplementation(() => [session]);
 
     const shoppinglistProviderProps = {

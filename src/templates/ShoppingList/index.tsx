@@ -13,7 +13,6 @@ import { useSession } from 'next-auth/client';
 import * as S from './styles';
 import Button from 'components/Button';
 import { useState } from 'react';
-import { useRouter } from 'next/dist/client/router';
 
 export type ShoppingListProps = {
   id: string;
@@ -24,7 +23,6 @@ export type ShoppingListProps = {
 
 const ShoppingList = ({ id, name, date, itemsSections }: ShoppingListProps) => {
   const [session] = useSession();
-  const router = useRouter();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const onCheckItem = async (itemId: string) => {
@@ -40,26 +38,6 @@ const ShoppingList = ({ id, name, date, itemsSections }: ShoppingListProps) => {
         }
       }
     );
-  };
-
-  const onDeleteList = async () => {
-    try {
-      await api.post(
-        'shopping-list/delete',
-        {
-          id: id
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${session?.jwt}`
-          }
-        }
-      );
-
-      router.push('/shopping-lists');
-    } catch (error) {
-      router.push('/sign-in');
-    }
   };
 
   return (
@@ -79,6 +57,7 @@ const ShoppingList = ({ id, name, date, itemsSections }: ShoppingListProps) => {
           <Calendar4Range size={20} />
           <span>{formatDate(new Date(date))}</span>
         </S.Date>
+
         <ListItems
           checkList
           itemsSections={itemsSections}
@@ -90,8 +69,8 @@ const ShoppingList = ({ id, name, date, itemsSections }: ShoppingListProps) => {
         </Button>
 
         <DeleteListModal
+          listId={id}
           isOpen={isDeleteModalOpen}
-          onConfirm={() => onDeleteList()}
           onCancel={() => setIsDeleteModalOpen(false)}
         />
       </S.Wrapper>

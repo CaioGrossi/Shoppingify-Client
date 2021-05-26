@@ -1,5 +1,6 @@
 const mock = {
-  isOpen: false,
+  listId: '1',
+  isOpen: true,
   onConfirm: () => null,
   onCancel: () => null
 };
