@@ -6,8 +6,9 @@ export const Wrapper = styled.div`
   align-items: center;
   padding: 0.5rem;
   width: 30rem;
-  height: 5.5rem;
+  min-height: 5.5rem;
   font-size: 1.8rem;
+  word-break: break-all;
   color: black;
 `;
 

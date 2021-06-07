@@ -40,3 +40,13 @@ export const Date = styled.div`
     margin-left: 1rem;
   }
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+
+  > * {
+    &:first-child {
+      margin-right: 2rem;
+    }
+  }
+`;

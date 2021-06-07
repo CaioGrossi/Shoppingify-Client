@@ -60,3 +60,11 @@ export const CheckBox = styled.input`
     }
   }
 `;
+
+export const DeleteButton = styled.button`
+  border: none;
+  background-color: #eb5757;
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+`;

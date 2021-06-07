@@ -47,7 +47,8 @@ const checkListMock = [
         id: '3989da9d0667',
         checked: false,
         quantity: 1,
-        onCheck: () => null
+        onCheck: () => null,
+        onRemove: () => null
       },
 
       {
@@ -55,7 +56,8 @@ const checkListMock = [
         id: '398da9d0',
         checked: false,
         quantity: 1,
-        onCheck: () => null
+        onCheck: () => null,
+        onRemove: () => null
       },
 
       {
@@ -63,7 +65,8 @@ const checkListMock = [
         id: '3989da9d0',
         checked: false,
         quantity: 1,
-        onCheck: () => null
+        onCheck: () => null,
+        onRemove: () => null
       }
     ]
   },
@@ -76,21 +79,24 @@ const checkListMock = [
         id: '308fsj40',
         checked: false,
         quantity: 1,
-        onCheck: () => null
+        onCheck: () => null,
+        onRemove: () => null
       },
       {
         name: 'Limpador',
         id: '308sjf40',
         checked: false,
         quantity: 1,
-        onCheck: () => null
+        onCheck: () => null,
+        onRemove: () => null
       },
       {
         name: 'Limpador',
         id: '308vsj40',
         checked: false,
         quantity: 1,
-        onCheck: () => null
+        onCheck: () => null,
+        onRemove: () => null
       }
     ]
   }

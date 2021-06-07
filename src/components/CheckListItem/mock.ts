@@ -3,7 +3,8 @@ const mock = {
   name: 'Avocado',
   quantity: 4,
   onCheck: () => null,
-  checked: false
+  checked: false,
+  onRemove: () => null
 };
 
 export { mock };

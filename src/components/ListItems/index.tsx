@@ -21,12 +21,14 @@ export type ItemsListProps = {
   itemsSections: CategoryItemsSections[];
   checkList?: boolean;
   onCheck?: (id: string) => void;
+  onRemove?: (id: string) => void;
 };
 
 const ItemsList = ({
   itemsSections,
   checkList = false,
-  onCheck
+  onCheck,
+  onRemove
 }: ItemsListProps) => (
   <S.Wrapper>
     {itemsSections.map((itemSection) => (
@@ -42,6 +44,7 @@ const ItemsList = ({
                 checked={item.checked!}
                 quantity={item.quantity!}
                 onCheck={onCheck!}
+                onRemove={onRemove!}
               />
             ) : (
               <CartItem name={item.name} id={item.id} key={item.id} />

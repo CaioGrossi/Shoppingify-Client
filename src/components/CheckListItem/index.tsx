@@ -1,14 +1,18 @@
 import { ListItem } from 'hooks/use-shoppinglist';
+import { TrashFill } from '@styled-icons/bootstrap/TrashFill';
 import * as S from './styles';
 
 export type CheckListItemProps = ListItem & {
   onCheck: (id: string) => void;
-} & { checked: boolean };
+  onRemove: (id: string) => void;
+  checked: boolean;
+};
 
 const CheckListItem = ({
   id,
   name,
   onCheck,
+  onRemove,
   quantity,
   checked
 }: CheckListItemProps) => (
@@ -21,6 +25,10 @@ const CheckListItem = ({
       onChange={() => onCheck(id)}
       defaultChecked={checked}
     />
+
+    <S.DeleteButton onClick={() => onRemove(id)}>
+      <TrashFill size={18} color="white" />
+    </S.DeleteButton>
   </S.Wrapper>
 );
 

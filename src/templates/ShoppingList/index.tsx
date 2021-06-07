@@ -2,6 +2,7 @@ import { CategoryItemsSections } from 'components/ListItems';
 import ListItems from 'components/ListItems';
 import Base from 'templates/Base';
 import DeleteListModal from 'components/DeleteListModal';
+import AddItemModal from 'components/AddItemModal';
 
 import { ArrowLeft } from '@styled-icons/bootstrap/ArrowLeft';
 import { Calendar4Range } from '@styled-icons/bootstrap/Calendar4Range';
@@ -10,9 +11,11 @@ import api from 'services/api';
 import Link from 'next/link';
 import { formatDate } from 'utils/mappers';
 import { useSession } from 'next-auth/client';
-import * as S from './styles';
+
 import Button from 'components/Button';
 import { useState } from 'react';
+import * as S from './styles';
+import router from 'next/dist/client/router';
 
 export type ShoppingListProps = {
   id: string;
@@ -24,6 +27,7 @@ export type ShoppingListProps = {
 const ShoppingList = ({ id, name, date, itemsSections }: ShoppingListProps) => {
   const [session] = useSession();
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [ísAddItemModalOpen, setIsAddModalOpen] = useState(false);
 
   const onCheckItem = async (itemId: string) => {
     await api.post(
@@ -38,6 +42,23 @@ const ShoppingList = ({ id, name, date, itemsSections }: ShoppingListProps) => {
         }
       }
     );
+  };
+
+  const onRemoveItem = async (itemId: string) => {
+    await api.post(
+      'shooping-list-item/remove-item',
+      {
+        itemId: itemId,
+        listId: id
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${session?.jwt}`
+        }
+      }
+    );
+
+    router.replace(router.asPath);
   };
 
   return (
@@ -62,16 +83,27 @@ const ShoppingList = ({ id, name, date, itemsSections }: ShoppingListProps) => {
           checkList
           itemsSections={itemsSections}
           onCheck={onCheckItem}
+          onRemove={onRemoveItem}
         />
 
-        <Button color="red" onClick={() => setIsDeleteModalOpen(true)}>
-          Delete
-        </Button>
+        <S.ButtonWrapper>
+          <Button color="red" onClick={() => setIsDeleteModalOpen(true)}>
+            Delete
+          </Button>
+
+          <Button onClick={() => setIsAddModalOpen(true)}>Add</Button>
+        </S.ButtonWrapper>
 
         <DeleteListModal
           listId={id}
           isOpen={isDeleteModalOpen}
           onCancel={() => setIsDeleteModalOpen(false)}
+        />
+
+        <AddItemModal
+          listId={id}
+          isOpen={ísAddItemModalOpen}
+          onCancel={() => setIsAddModalOpen(false)}
         />
       </S.Wrapper>
     </Base>

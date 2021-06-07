@@ -24,4 +24,12 @@ describe('<CheckListItem />', () => {
 
     expect(onCheckMock).toHaveBeenCalledWith('1');
   });
+
+  it('should call onRemove function when trash button is clicked', () => {
+    const onRemoveMock = jest.fn();
+    render(<CheckListItem {...mock} onRemove={onRemoveMock} />);
+
+    userEvent.click(screen.getByRole('button'));
+    expect(onRemoveMock).toHaveBeenCalledWith('1');
+  });
 });

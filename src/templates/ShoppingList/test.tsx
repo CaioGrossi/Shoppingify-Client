@@ -2,7 +2,6 @@ import { screen, render } from '@testing-library/react';
 import ShoppingList from 'templates/ShoppingList';
 import { mockShoppingLits } from './mock';
 import 'session.mock';
-import userEvent from '@testing-library/user-event';
 
 jest.mock('templates/Base', () => ({
   __esModule: true,
@@ -18,6 +17,20 @@ jest.mock('components/ListItems', () => ({
   }
 }));
 
+jest.mock('components/DeleteListModal', () => ({
+  __esModule: true,
+  default: function Mock({ children }: { children: React.ReactNode }) {
+    return <div data-testid="mock deleteListModal">{children}</div>;
+  }
+}));
+
+jest.mock('components/AddItemModal', () => ({
+  __esModule: true,
+  default: function Mock({ children }: { children: React.ReactNode }) {
+    return <div data-testid="mock addItemModal">{children}</div>;
+  }
+}));
+
 describe('<ShoppingList />', () => {
   it('should render correctly', () => {
     render(<ShoppingList {...mockShoppingLits} />);
@@ -29,15 +42,8 @@ describe('<ShoppingList />', () => {
 
     expect(screen.getByText(/thu 13\.5\.2021/i)).toBeInTheDocument();
     expect(screen.getByTestId(/mock listitems/i)).toBeInTheDocument();
-  });
 
-  it('should show modal when delete button is clicked', () => {
-    render(<ShoppingList {...mockShoppingLits} />);
-
-    userEvent.click(screen.getByRole('button', { name: /delete/i }));
-
-    expect(
-      screen.getByText(/are you shure that you want to delete this list\?/i)
-    ).toBeInTheDocument();
+    expect(screen.getByTestId(/mock deletelistmodal/i)).toBeInTheDocument();
+    expect(screen.getByTestId(/mock addItemModal/i)).toBeInTheDocument();
   });
 });

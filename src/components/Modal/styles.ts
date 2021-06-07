@@ -36,7 +36,6 @@ export const Content = styled.div`
   padding: 3rem;
   background-color: white;
   border-radius: 12px;
-  min-width: 50rem;
   z-index: 100;
 
   h1 {

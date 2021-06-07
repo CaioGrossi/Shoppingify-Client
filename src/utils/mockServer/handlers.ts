@@ -95,5 +95,50 @@ export const handlers = [
         })
       );
     }
+  ),
+  rest.get(
+    `${process.env.NEXT_PUBLIC_API_URL}item/all-not-in-list/12`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json([
+          {
+            id: '1',
+            name: 'banana'
+          },
+          {
+            id: '2',
+            name: 'milk'
+          },
+          {
+            id: '3',
+            name: 'meat'
+          }
+        ])
+      );
+    }
+  ),
+  rest.post(
+    `${process.env.NEXT_PUBLIC_API_URL}/shopping-list/add-new-items`,
+    (req, res, ctx) => {
+      const token = req.headers.get('Authorization');
+
+      if (token == 'Bearer invalid token') {
+        return res(
+          ctx.status(401),
+          ctx.json({
+            statusCode: 401,
+            message: 'Unauthorized'
+          })
+        );
+      }
+
+      return res(
+        ctx.status(200),
+        ctx.json({
+          status: 'created'
+        })
+      );
+    }
   )
 ];
