@@ -55,6 +55,8 @@ const AddItemModal = ({ isOpen, listId, onCancel }: AddItemModalProps) => {
   };
 
   const onAddNewItems = async () => {
+    onCancelAddItems();
+
     try {
       await api.post(
         '/shopping-list/add-new-items',
@@ -68,10 +70,8 @@ const AddItemModal = ({ isOpen, listId, onCancel }: AddItemModalProps) => {
           }
         }
       );
-
       const response = await api.get(`item/all-not-in-list/${listId}`);
       setAllListItems(response.data);
-      onCancelAddItems();
       router.replace(router.asPath);
     } catch (err) {
       router.push('/sign-in');
