@@ -1,5 +1,5 @@
 # Shoppingify
-A aplicação Shoppingify é uma espécie de super lista de compras que você pode levar para qualquer lugar. Um usuário pode adicionar items por categorias já pré-cadastradas e esses itens serão públicos para qualquer um poder adicionar em sua lista também. Além de ter acesso a suas listas e função como deletar a lista e check-list do items, o usuário também pode vizualizar suas estatísticas como items e categorias mais usados em suas listas. Link para o projeto em produção https://shoppingify-client-gkv576opv-caiogrossi.vercel.app/
+A aplicação Shoppingify é uma espécie de super lista de compras que você pode levar para qualquer lugar. Um usuário pode adicionar items por categorias já pré-cadastradas e esses itens serão públicos para qualquer um poder adicionar em sua lista também. Além de ter acesso a suas listas e função como deletar a lista e check-list do items, o usuário também pode vizualizar suas estatísticas como items e categorias mais usados em suas listas. Link para o projeto em produção https://shoppingify-client-r06char5q-caiogrossi.vercel.app/sign-in
 
 <p align="center">
   <img src="/demo/demo_shoppingify_desktop.gif" />
